@@ -10,12 +10,21 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class FrmIlkSayfa : Form
     {
-        public Form1()
+        public FrmIlkSayfa()
         {
             InitializeComponent();
         }
 
+        private void ogrenciBTN_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminBTN_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
