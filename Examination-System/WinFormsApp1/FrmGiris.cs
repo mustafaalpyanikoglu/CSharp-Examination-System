@@ -13,6 +13,7 @@ namespace WinFormsApp1
 {
     public partial class FrmGiris : Form
     {
+        FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
         public FrmGiris()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace WinFormsApp1
 
         private void sifreTxt_MouseClick(object sender, MouseEventArgs e)
         {
-            sifreTxt.Clear();
+            sifreTxt.Clear(); //tıkladığında textbox temizlenecek
             sifreTxt.PasswordChar = '*';
         }
 
@@ -38,17 +39,26 @@ namespace WinFormsApp1
 
         private void girisBTN_Click(object sender, EventArgs e)
         {
+ 
             girisYap(kullaniciAdiTxt.Text,sifreTxt.Text);
         }
+        SqlCommand command;
 
         public void girisYap(string ad, string sifre)
         {
             SqlManager sqlManager = new SqlManager();
-            SqlCommand command = new SqlCommand("Select *From adminHesaplari where kullaniciadi='" + ad + "' and sifre='" + sifre + "'", sqlManager.sqlConnection());
-            sqlManager.sqlConnection();
+            if(Variables.test) //Admin musteri girisine göre değerlendirme yapılacak
+            {
+                command = new SqlCommand("Select *From adminHesaplari where kullaniciadi='" + ad + "' and sifre='" + sifre + "'", sqlManager.sqlConnection());
+            }
+            else
+            {
+                command = new SqlCommand("Select *From musteriHesaplari where kullaniciadi='" + ad + "' and sifre='" + sifre + "'", sqlManager.sqlConnection());
+            }
+            sqlManager.sqlConnection(); //veritabanına bağlanıyoruz
             SqlDataReader sqlDataReader = command.ExecuteReader();
 
-            if(sqlDataReader.Read())
+            if(sqlDataReader.Read()) //veritabanındaki bilgileri okuyoruz
             {
                 MessageBox.Show("Giriş Başarılı");
                 //şimdilik bu sayfa
@@ -62,7 +72,6 @@ namespace WinFormsApp1
             }
             sqlManager.sqlConnection().Close();
             command.Dispose();
-            
         }
     }
 }

@@ -7,14 +7,14 @@ using System.Data.SqlClient;
 
 namespace WinFormsApp1
 {
-    class AdminHesap:Kisi
+    class musteriHesap:Kisi
     {
-        public void verileriKaydet()
+        public void musteriVerileriKaydet()
         {
             SqlManager sqlManager = new SqlManager();
             sqlManager.sqlConnection();
             //values (@p1,@p2,@p3,@p4,@p5)
-            SqlCommand komut = new SqlCommand("Insert into adminHesaplari(adsoyad,kullaniciadi,sifre,email) values (@p1,@p2,@p3,@p4)", sqlManager.sqlConnection());
+            SqlCommand komut = new SqlCommand("Insert into musteriHesaplari(adsoyad,kullaniciadi,sifre,email) values (@p1,@p2,@p3,@p4)", sqlManager.sqlConnection());
             komut.Parameters.AddWithValue("@p1", base.AdSoyad);
             komut.Parameters.AddWithValue("@p2", base.KullaniciAdi);
             komut.Parameters.AddWithValue("@p3", base.Sifre);
@@ -22,6 +22,5 @@ namespace WinFormsApp1
             komut.ExecuteNonQuery();
             sqlManager.sqlConnection().Close();
         }
-
     }
 }

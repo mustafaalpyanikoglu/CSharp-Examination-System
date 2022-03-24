@@ -12,6 +12,7 @@ namespace WinFormsApp1
 {
     public partial class FrmIlkSayfa : Form
     {
+        public bool isAdminMusteri;
         public FrmIlkSayfa()
         {
             InitializeComponent();
@@ -19,11 +20,15 @@ namespace WinFormsApp1
 
         private void ogrenciBTN_Click(object sender, EventArgs e)
         {
-
+            Variables.test = false;
+            FrmGiris frmGiris = new FrmGiris();
+            frmGiris.Show();
+            this.Hide();
         }
 
         private void AdminBTN_Click(object sender, EventArgs e)
         {
+            Variables.test = true;
             FrmGiris frmGiris = new FrmGiris();
             frmGiris.Show();
             this.Hide();

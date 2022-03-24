@@ -21,15 +21,34 @@ namespace WinFormsApp1
 
         private void kayitOlBTN_Click(object sender, EventArgs e)
         {
-            AdminHesap adminHesap = new AdminHesap();
-            adminHesap.AdSoyad = adSoyadTxt.Text;
-            adminHesap.KullaniciAdi = kullaniciAdiTxt.Text;
-            adminHesap.Sifre = sifreTxt.Text;
-            adminHesap.Mail = eMailTxt.Text;
-
-            adminHesap.verileriKaydet();
-            
             FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
+
+            //true false bug var ona bakılacak
+            if (Variables.test) //admin kayit islemleri
+            {
+                AdminHesap adminHesap = new AdminHesap();
+                adminHesap.AdSoyad = adSoyadTxt.Text;
+                adminHesap.KullaniciAdi = kullaniciAdiTxt.Text;
+                adminHesap.Sifre = sifreTxt.Text;
+                adminHesap.Mail = eMailTxt.Text;
+
+                adminHesap.verileriKaydet();
+                MessageBox.Show("admin kayit yapıldı");
+            }
+            else //musteri kayit islemleri
+            {
+                musteriHesap musteriHesap = new musteriHesap();
+                musteriHesap.AdSoyad = adSoyadTxt.Text;
+                musteriHesap.KullaniciAdi = kullaniciAdiTxt.Text;
+                musteriHesap.Sifre = sifreTxt.Text;
+                musteriHesap.Mail = eMailTxt.Text;
+
+                musteriHesap.musteriVerileriKaydet();
+                MessageBox.Show("Musteri kayit yapıldı");
+            }
+
+
+
             frmIlkSayfa.Show();
             this.Hide();
         }
