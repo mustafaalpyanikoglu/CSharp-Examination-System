@@ -24,7 +24,9 @@ namespace WinFormsApp1
 
         private void AdminBTN_Click(object sender, EventArgs e)
         {
-
+            FrmGiris frmGiris = new FrmGiris();
+            frmGiris.Show();
+            this.Hide();
         }
     }
 }

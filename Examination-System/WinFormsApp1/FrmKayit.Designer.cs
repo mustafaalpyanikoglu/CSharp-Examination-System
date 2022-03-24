@@ -44,11 +44,13 @@ namespace WinFormsApp1
             this.panel4 = new System.Windows.Forms.Panel();
             this.eMailTxt = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // kayitOlBTN
@@ -63,6 +65,7 @@ namespace WinFormsApp1
             this.kayitOlBTN.TabStop = false;
             this.kayitOlBTN.Text = "Kayıt Ol";
             this.kayitOlBTN.UseVisualStyleBackColor = false;
+            this.kayitOlBTN.Click += new System.EventHandler(this.kayitOlBTN_Click);
             // 
             // panel2
             // 
@@ -86,6 +89,7 @@ namespace WinFormsApp1
             this.sifreTxt.TabIndex = 22;
             this.sifreTxt.TabStop = false;
             this.sifreTxt.Text = "Şifre";
+            this.sifreTxt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sifreTxt_MouseClick);
             // 
             // pictureBox3
             // 
@@ -120,6 +124,7 @@ namespace WinFormsApp1
             this.kullaniciAdiTxt.TabIndex = 19;
             this.kullaniciAdiTxt.TabStop = false;
             this.kullaniciAdiTxt.Text = "Kullanıcı Adı";
+            this.kullaniciAdiTxt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kullaniciAdiTxt_MouseClick);
             // 
             // pictureBox2
             // 
@@ -165,6 +170,7 @@ namespace WinFormsApp1
             this.adSoyadTxt.TabIndex = 26;
             this.adSoyadTxt.TabStop = false;
             this.adSoyadTxt.Text = "Ad Soyad";
+            this.adSoyadTxt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Clear);
             // 
             // pictureBox4
             // 
@@ -199,6 +205,7 @@ namespace WinFormsApp1
             this.eMailTxt.TabIndex = 25;
             this.eMailTxt.TabStop = false;
             this.eMailTxt.Text = "e-Mail";
+            this.eMailTxt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.eMailTxt_MouseClick);
             // 
             // pictureBox5
             // 
@@ -211,12 +218,23 @@ namespace WinFormsApp1
             this.pictureBox5.TabIndex = 24;
             this.pictureBox5.TabStop = false;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(507, 62);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(651, 565);
+            this.dataGridView1.TabIndex = 28;
+            // 
             // FrmKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(417, 552);
+            this.ClientSize = new System.Drawing.Size(1255, 784);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.eMailTxt);
@@ -242,6 +260,7 @@ namespace WinFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +282,6 @@ namespace WinFormsApp1
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox eMailTxt;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
