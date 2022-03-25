@@ -11,17 +11,23 @@ using System.Data.SqlClient;
 
 namespace WinFormsApp1
 {
-    public partial class FrmGiris : Form
+    partial class FrmGiris : Form
     {
         FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
-        public FrmGiris()
+
+        private UserType userType;
+
+        private IAuthService _authService = new AuthManager();
+
+        public FrmGiris(UserType userType)
         {
             InitializeComponent();
+            this.userType = userType;
         }
 
         private void kayıtOlBTN_Click(object sender, EventArgs e)
         {
-            FrmKayit frmKayit = new FrmKayit();
+            FrmKayit frmKayit = new FrmKayit(this.userType);
             frmKayit.Show();
             this.Hide();
         }
@@ -39,39 +45,30 @@ namespace WinFormsApp1
 
         private void girisBTN_Click(object sender, EventArgs e)
         {
- 
-            girisYap(kullaniciAdiTxt.Text,sifreTxt.Text);
-        }
-        SqlCommand command;
-
-        public void girisYap(string ad, string sifre)
-        {
-            SqlManager sqlManager = new SqlManager();
-            if(Variables.test) //Admin musteri girisine göre değerlendirme yapılacak
+            IAuthService authService = new AuthManager();
+            User _user;
+            if(this.userType==UserType.ADMIN)
             {
-                command = new SqlCommand("Select *From adminHesaplari where kullaniciadi='" + ad + "' and sifre='" + sifre + "'", sqlManager.sqlConnection());
+                _user =new AdminAccount();
+                _user.UserName = kullaniciAdiTxt.Text;
+                _user.Password = sifreTxt.Text;
             }
             else
             {
-                command = new SqlCommand("Select *From musteriHesaplari where kullaniciadi='" + ad + "' and sifre='" + sifre + "'", sqlManager.sqlConnection());
+                _user = new MusteriAccount();
+                _user.UserName = kullaniciAdiTxt.Text;
+                _user.Password = sifreTxt.Text;
             }
-            sqlManager.sqlConnection(); //veritabanına bağlanıyoruz
-            SqlDataReader sqlDataReader = command.ExecuteReader();
-
-            if(sqlDataReader.Read()) //veritabanındaki bilgileri okuyoruz
+            BaseResult<User> result= authService.Login(_user, this.userType);
+            if(!result.isSuccess)
             {
-                MessageBox.Show("Giriş Başarılı");
-                //şimdilik bu sayfa
-                FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
-                frmIlkSayfa.Show();
-                this.Hide();
+                MessageBox.Show("Hatalı");
             }
             else
             {
-                MessageBox.Show("Hatalı Giriş");
+                //kullanıcı verilerini çekmek için
             }
-            sqlManager.sqlConnection().Close();
-            command.Dispose();
+
         }
     }
 }

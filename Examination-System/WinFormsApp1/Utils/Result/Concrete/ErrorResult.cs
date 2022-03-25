@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    class Variables //admin müşteri girişi için bir koşul gerek bunuda bir bool koyarak yaptık
+    class ErrorResult<T>:BaseResult<T>
     {
-        public static bool test;
+        public ErrorResult(T data):base(false,data)
+        {
+        }
     }
 }

@@ -12,43 +12,37 @@ using System.Data;
 
 namespace WinFormsApp1
 {
-    public partial class FrmKayit : Form
+    partial class FrmKayit : Form
     {
-        public FrmKayit()
+        private UserType userType;
+        public FrmKayit(UserType userType)
         {
             InitializeComponent();
+            this.userType = userType;
         }
 
         private void kayitOlBTN_Click(object sender, EventArgs e)
         {
             FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
 
-            //true false bug var ona bakılacak
-            if (Variables.test) //admin kayit islemleri
+            if (this.userType == UserType.ADMIN)
             {
-                AdminHesap adminHesap = new AdminHesap();
-                adminHesap.AdSoyad = adSoyadTxt.Text;
-                adminHesap.KullaniciAdi = kullaniciAdiTxt.Text;
-                adminHesap.Sifre = sifreTxt.Text;
-                adminHesap.Mail = eMailTxt.Text;
-
-                adminHesap.verileriKaydet();
-                MessageBox.Show("admin kayit yapıldı");
+                User _user = new AdminAccount();
+                _user.UserName = kullaniciAdiTxt.Text;
+                _user.NameSurname = adSoyadTxt.Text;
+                _user.Password = sifreTxt.Text;
+                _user.Mail = eMailTxt.Text;
+                _user.SaveData();
             }
-            else //musteri kayit islemleri
+            else
             {
-                musteriHesap musteriHesap = new musteriHesap();
-                musteriHesap.AdSoyad = adSoyadTxt.Text;
-                musteriHesap.KullaniciAdi = kullaniciAdiTxt.Text;
-                musteriHesap.Sifre = sifreTxt.Text;
-                musteriHesap.Mail = eMailTxt.Text;
-
-                musteriHesap.musteriVerileriKaydet();
-                MessageBox.Show("Musteri kayit yapıldı");
+                User _user = new MusteriAccount();
+                _user.UserName = kullaniciAdiTxt.Text;
+                _user.NameSurname = adSoyadTxt.Text;
+                _user.Password = sifreTxt.Text;
+                _user.Mail = eMailTxt.Text;
+                _user.SaveData();
             }
-
-
-
             frmIlkSayfa.Show();
             this.Hide();
         }

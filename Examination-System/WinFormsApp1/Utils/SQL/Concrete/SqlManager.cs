@@ -8,7 +8,7 @@ using System.Data;
 
 namespace WinFormsApp1
 {
-    public class SqlManager
+    public class SqlManager:ISqlService
     {
         public SqlConnection sqlConnection()
         {
@@ -16,12 +16,5 @@ namespace WinFormsApp1
             connection.Open();
             return connection;
         }
-
-
-        /*public void sqlConnection(string connection)
-        {
-            SqlConnection sqlConnection = new SqlConnection(connection);
-            sqlConnection.Open();
-        }*/
     }
 }
