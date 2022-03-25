@@ -78,6 +78,7 @@ namespace WinFormsApp1
             this.kullaniciAdiTxt.TabIndex = 11;
             this.kullaniciAdiTxt.TabStop = false;
             this.kullaniciAdiTxt.Text = "Kullanıcı Adı";
+            this.kullaniciAdiTxt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kullaniciAdiTxt_MouseClick);
             // 
             // panel1
             // 
@@ -111,6 +112,7 @@ namespace WinFormsApp1
             this.sifreTxt.TabIndex = 14;
             this.sifreTxt.TabStop = false;
             this.sifreTxt.Text = "Şifre";
+            this.sifreTxt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sifreTxt_MouseClick);
             // 
             // pictureBox3
             // 
@@ -135,6 +137,7 @@ namespace WinFormsApp1
             this.girisBTN.TabStop = false;
             this.girisBTN.Text = "Giriş Yap";
             this.girisBTN.UseVisualStyleBackColor = false;
+            this.girisBTN.Click += new System.EventHandler(this.girisBTN_Click);
             // 
             // kayıtOlBTN
             // 
@@ -148,6 +151,7 @@ namespace WinFormsApp1
             this.kayıtOlBTN.TabStop = false;
             this.kayıtOlBTN.Text = "Kayıt Ol";
             this.kayıtOlBTN.UseVisualStyleBackColor = false;
+            this.kayıtOlBTN.Click += new System.EventHandler(this.kayıtOlBTN_Click);
             // 
             // SifreUnuttumBTN
             // 
