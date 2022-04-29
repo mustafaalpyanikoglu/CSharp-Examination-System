@@ -10,7 +10,7 @@ namespace WinFormsApp1
 {
     public class SqlManager:ISqlService
     {
-        public SqlConnection sqlConnection()
+        public SqlConnection sqlConnection() //Sql'i her seferinde tek tek bağlamak yerine bir class oluşturduk ve bunu çağırıyoruz
         {
             SqlConnection connection = new SqlConnection("Data Source=DESKTOP-IVPEDOC;Initial Catalog=ExaminationSystem;Integrated Security=True");
             connection.Open();

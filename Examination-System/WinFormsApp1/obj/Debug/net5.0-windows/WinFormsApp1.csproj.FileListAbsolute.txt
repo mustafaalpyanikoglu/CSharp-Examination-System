@@ -17,8 +17,6 @@ C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debu
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\ref\WinFormsApp1.dll
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.pdb
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.genruntimeconfig.cache
-C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.FrmGiris.resources
-C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.FrmKayit.resources
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
@@ -26,3 +24,6 @@ C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\bin\Debu
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.csproj.CopyComplete
+C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.KodNoLbl.resources
+C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.FrmLogin.resources
+C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.FrmRegister.resources

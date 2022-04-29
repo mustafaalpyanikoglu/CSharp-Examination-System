@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    enum UserType
+    enum UserType //admin müşteri girişi için tip belirledik
     {
         ADMIN,
         CUSTOMER

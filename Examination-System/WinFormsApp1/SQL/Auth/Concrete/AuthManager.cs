@@ -52,7 +52,7 @@ namespace WinFormsApp1
             }
             else
             {
-                return new ErrorResult<User>(user);
+                return new ErrorResult<User>(data:user,error:"Kullanıcı bulunamadı");
             }
         }
 

@@ -22,7 +22,7 @@ namespace WinFormsApp1
         {
             //Variables.test = false;
             
-            FrmGiris frmGiris = new FrmGiris(UserType.CUSTOMER);
+            FrmLogin frmGiris = new FrmLogin(UserType.CUSTOMER);
             frmGiris.Show();
             this.Hide();
         }
@@ -31,7 +31,7 @@ namespace WinFormsApp1
         {
             //Variables.test = true;
             
-            FrmGiris frmGiris = new FrmGiris(UserType.ADMIN);
+            FrmLogin frmGiris = new FrmLogin(UserType.ADMIN);
             frmGiris.Show();
             this.Hide();
         }

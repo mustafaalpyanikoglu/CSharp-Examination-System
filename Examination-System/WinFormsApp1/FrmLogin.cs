@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace WinFormsApp1
 {
-    partial class FrmGiris : Form
+    partial class FrmLogin : Form
     {
         FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
 
@@ -19,7 +19,7 @@ namespace WinFormsApp1
 
         private IAuthService _authService = new AuthManager();
 
-        public FrmGiris(UserType userType)
+        public FrmLogin(UserType userType)
         {
             InitializeComponent();
             this.userType = userType;
@@ -27,7 +27,7 @@ namespace WinFormsApp1
 
         private void kayıtOlBTN_Click(object sender, EventArgs e)
         {
-            FrmKayit frmKayit = new FrmKayit(this.userType);
+            FrmRegister frmKayit = new FrmRegister(this.userType);
             frmKayit.Show();
             this.Hide();
         }
@@ -66,6 +66,9 @@ namespace WinFormsApp1
             }
             else
             {
+                KodNoLbl frmSinavHazirlamaModülü = new KodNoLbl();
+                frmSinavHazirlamaModülü.Show();
+                this.Hide();
                 //kullanıcı verilerini çekmek için
             }
 

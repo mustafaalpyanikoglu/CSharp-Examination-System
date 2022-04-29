@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsApp1
 {
-    partial class FrmKayit
+    partial class FrmRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKayit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegister));
             this.kayitOlBTN = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sifreTxt = new System.Windows.Forms.TextBox();
@@ -221,11 +221,11 @@ namespace WinFormsApp1
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(507, 62);
+            this.dataGridView1.Location = new System.Drawing.Point(437, 151);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(651, 565);
+            this.dataGridView1.Size = new System.Drawing.Size(300, 188);
             this.dataGridView1.TabIndex = 28;
             // 
             // FrmKayit
@@ -233,7 +233,7 @@ namespace WinFormsApp1
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1255, 784);
+            this.ClientSize = new System.Drawing.Size(919, 552);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);

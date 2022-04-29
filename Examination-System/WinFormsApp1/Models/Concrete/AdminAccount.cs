@@ -9,11 +9,10 @@ namespace WinFormsApp1
 {
     class AdminAccount : User
     {
-        public override void SaveData()
+        public override void SaveData() //admin bilgilerini kaydediyoruz
         {
             SqlManager sqlManager = new SqlManager();
             sqlManager.sqlConnection();
-            //values (@p1,@p2,@p3,@p4,@p5)
             SqlCommand komut = new SqlCommand("Insert into adminHesaplari(adsoyad,kullaniciadi,sifre,email) values (@p1,@p2,@p3,@p4)", sqlManager.sqlConnection());
             komut.Parameters.AddWithValue("@p1", base.NameSurname);
             komut.Parameters.AddWithValue("@p2", base.UserName);

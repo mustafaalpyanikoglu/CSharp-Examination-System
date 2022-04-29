@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsApp1
 {
-    partial class FrmGiris
+    partial class FrmLogin
     {
         /// <summary>
         /// Required designer variable.

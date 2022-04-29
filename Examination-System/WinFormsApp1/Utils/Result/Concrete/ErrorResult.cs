@@ -8,8 +8,10 @@ namespace WinFormsApp1
 {
     class ErrorResult<T>:BaseResult<T>
     {
-        public ErrorResult(T data):base(false,data)
+        public string error;
+        public ErrorResult(string error,T data):base(false,data)
         {
+            this.error = error;
         }
     }
 }
