@@ -12,10 +12,10 @@ using System.Data;
 
 namespace WinFormsApp1
 {
-    partial class FrmKayit : Form
+    partial class FrmRegister : Form
     {
         private UserType userType;
-        public FrmKayit(UserType userType)
+        public FrmRegister(UserType userType)
         {
             InitializeComponent();
             this.userType = userType;

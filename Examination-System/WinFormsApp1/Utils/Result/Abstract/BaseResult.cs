@@ -17,8 +17,5 @@ namespace WinFormsApp1
             this.isSuccess = isSuccess;
             this.data = data;
         }
-
-
-
     }
 }
