@@ -53,6 +53,12 @@ namespace WinFormsApp1
                 _user.UserName = kullaniciAdiTxt.Text;
                 _user.Password = sifreTxt.Text;
             }
+            else if(this.userType==UserType.EXAMINER)
+            {
+                _user = new ExaminerAccount();
+                _user.UserName = kullaniciAdiTxt.Text;
+                _user.Password = sifreTxt.Text;
+            }
             else
             {
                 _user = new MusteriAccount();

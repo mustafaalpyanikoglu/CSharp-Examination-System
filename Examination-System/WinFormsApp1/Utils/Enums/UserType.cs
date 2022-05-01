@@ -9,6 +9,7 @@ namespace WinFormsApp1
     enum UserType //admin müşteri girişi için tip belirledik
     {
         ADMIN,
+        EXAMINER,
         CUSTOMER
     }
 }
