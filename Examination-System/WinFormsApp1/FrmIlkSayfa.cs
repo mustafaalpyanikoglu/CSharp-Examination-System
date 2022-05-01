@@ -35,5 +35,12 @@ namespace WinFormsApp1
             frmGiris.Show();
             this.Hide();
         }
+
+        private void ExaminerBoxBTN_Click(object sender, EventArgs e)
+        {
+            FrmLogin frmGiris = new FrmLogin(UserType.EXAMINER);
+            frmGiris.Show();
+            this.Hide();
+        }
     }
 }

@@ -21,6 +21,11 @@ namespace WinFormsApp1
                 user = new AdminAccount();
                 command = new SqlCommand("Select * From adminHesaplari where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
             }
+            else if (userType == UserType.EXAMINER) //Admin musteri girisine göre değerlendirme yapılacak
+            {
+                user = new AdminAccount();
+                command = new SqlCommand("Select * From ExaminerAccounts where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+            }
             else
             {
                 user = new MusteriAccount();

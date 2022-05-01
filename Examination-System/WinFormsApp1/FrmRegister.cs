@@ -34,6 +34,15 @@ namespace WinFormsApp1
                 _user.Mail = eMailTxt.Text;
                 _user.SaveData();
             }
+            else if (this.userType == UserType.EXAMINER)
+            {
+                User _user = new ExaminerAccount();
+                _user.UserName = kullaniciAdiTxt.Text;
+                _user.NameSurname = adSoyadTxt.Text;
+                _user.Password = sifreTxt.Text;
+                _user.Mail = eMailTxt.Text;
+                _user.SaveData();
+            }
             else
             {
                 User _user = new MusteriAccount();
