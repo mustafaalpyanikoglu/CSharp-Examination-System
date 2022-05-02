@@ -8,9 +8,10 @@ namespace WinFormsApp1
 {
     class SuccessResult<T>:BaseResult<T>
     {
-        public SuccessResult(T data):base(true,data)
+        public string success;
+        public SuccessResult(string success,T data):base(true,data)
         {
-
+            this.success = success;
         }
     }
 }

@@ -53,7 +53,7 @@ namespace WinFormsApp1
             command.Dispose();
             if(result)
             {
-                return new SuccessResult<User>(user);
+                return new SuccessResult<User>(data:user ,success:"Kullanıcı bulundu");
             }
             else
             {

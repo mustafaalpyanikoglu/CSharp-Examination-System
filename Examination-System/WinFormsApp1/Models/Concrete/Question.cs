@@ -10,6 +10,13 @@ namespace WinFormsApp1
 {
     public class Question
     {
+        private int questionId;
+        public int QuestionId
+        {
+            get { return questionId; }
+            set { questionId = value; }
+        }
+
         private int unitNo;
         public int UnitNo
         {
@@ -80,8 +87,8 @@ namespace WinFormsApp1
             set { questionImage = value; }
         }
 
-        private string questionStatus;
-        public string QuestionStatus
+        private int questionStatus;
+        public int QuestionStatus
         {
             get { return questionStatus; }
             set { questionStatus = value; }

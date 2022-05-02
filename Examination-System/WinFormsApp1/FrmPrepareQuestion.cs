@@ -22,28 +22,6 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        
-
-        private void DeleteData()
-        {
-            SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            _sqlCommand = new SqlCommand("Delete from Table1 where id=@id", sqlConnection);
-            _sqlCommand.Parameters.AddWithValue("@id", SqlDbType.Int).Value = id1.Text;
-            _sqlCommand.ExecuteNonQuery();
-            _sqlManager.sqlConnection().Close();
-            //LoadData();
-            pictureBox1.Image = null;
-            textBox1.Text = "";
-            id1.Text = "";
-        }
-
-        private void ShowData()
-        {
-            id1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            MemoryStream memoryStream = new MemoryStream((Byte[])dataGridView1.CurrentRow.Cells[2].Value);
-            pictureBox1.Image = Image.FromStream(memoryStream);
-        }
 
         private void FrmSinavHazirlamaModülü_Load(object sender, EventArgs e)
         {
@@ -67,19 +45,8 @@ namespace WinFormsApp1
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select QuestionID,UnitNo,SubjectNo,UnitName,SubjectName,QuestionTxt from Questions ", sqlConnection);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
-            dataGridView2.DataSource = dataTable;  
+            //dataGridView2.DataSource = dataTable;  
 
-        }
-
-
-        private void dataGridView1_Click(object sender, EventArgs e)
-        {
-            ShowData();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            DeleteData();
         }
         
         private void Upload_Click(object sender, EventArgs e)
@@ -128,34 +95,6 @@ namespace WinFormsApp1
             }
             
             _questionManager.AddQuestionData(question);
-        }
-
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //datagridview'dan seçilen sorunun verilerini çekme
-            DialogResult result = MessageBox.Show("Doğru soruyu seçtiğinizden emin misiniz?", "Seçim kontrolü", MessageBoxButtons.YesNo);
-            DataGridViewCell clickedCell = dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            if (result==DialogResult.Yes)
-            {
-                if (clickedCell.Value != null)// datagridview'a tıklama kontrolü
-                {
-                    int questionID=Convert.ToInt32(clickedCell.FormattedValue.ToString());
-                    BaseResult<Question> dataResult = _questionManager.UploadQuestion(questionID); //<veri tipi>
-                    //datagridview'da seçilen soruyu geri dönderiyor
-                    if (dataResult is ErrorResult<Question>) //2.çözüm->if(!dataResult.isSuccess)
-                    {
-                        MessageBox.Show((dataResult as ErrorResult<Question>).error);
-                    }
-                    else
-                    {
-                        MemoryStream ms = new MemoryStream(dataResult.data.QuestionImage);
-                        Image returnImage = Image.FromStream(ms);
-                        pictureBox1.Image = returnImage;
-                        //MessageBox.Show(dataResult.data.QuestionTxt);
-                    }
-                }
-            }
-            
         }
     }
 }

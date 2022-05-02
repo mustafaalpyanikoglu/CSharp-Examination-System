@@ -12,9 +12,10 @@ namespace WinFormsApp1
 {
     class QuestionManager
     {
+        //private QuestionManager _questionManager = new QuestionManager();
         private SqlManager _sqlManager = new SqlManager();
         private SqlCommand _sqlCommand;
-        public void AddQuestionData(Question question)
+        /*public void AddQuestionData(Question question)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
             _sqlCommand = new SqlCommand("Insert into Questions(UnitNo,SubjectNo,UnitName,SubjectName,OptionA,OptionB,OptionC,OptionD,RightOption,QuestionImage,QuestionTxt,QuestionStatus)Values(@UnitNo,@SubjectNo,@UnitName,@SubjectName,@OptionA,@OptionB,@OptionC,@OptionD,@RightOption,@QuestionImage,@QuestionTxt,@QuestionStatus)", sqlConnection);
@@ -32,25 +33,36 @@ namespace WinFormsApp1
             _sqlCommand.Parameters.AddWithValue("@RightOption", question.RightOption);
             _sqlCommand.ExecuteNonQuery();
             MessageBox.Show("Data Inserted Successfull");
-        }
-
-        public void LoadData(DataGridView dataGridView)
+        }*/
+        public BaseResult<Question> AddQuestionData(Question question)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            _sqlCommand = new SqlCommand("Select * from Table1 order by id desc", sqlConnection);
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            sqlDataAdapter.SelectCommand = _sqlCommand;
-            DataTable dataTable = new DataTable();
-            dataTable.Clear();
-            sqlDataAdapter.Fill(dataTable);
-            dataGridView.RowTemplate.Height = 75;
-            dataGridView.DataSource = dataTable;
-            DataGridViewImageColumn pictur1 = new DataGridViewImageColumn();
-            pictur1 = (DataGridViewImageColumn)dataGridView.Columns[2];
-            pictur1.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+            if(question.UnitNo==0)
+            {
+                return new ErrorResult<Question>(data: question, error: "Veritabanına veri eklenemedi.");
+            }
+            else
+            {
+                _sqlCommand = new SqlCommand("Insert into Questions(UnitNo,SubjectNo,UnitName,SubjectName,OptionA,OptionB,OptionC,OptionD,RightOption,QuestionImage,QuestionTxt,QuestionStatus)Values(@UnitNo,@SubjectNo,@UnitName,@SubjectName,@OptionA,@OptionB,@OptionC,@OptionD,@RightOption,@QuestionImage,@QuestionTxt,@QuestionStatus)", sqlConnection);
+                _sqlCommand.Parameters.AddWithValue("@UnitNo", question.UnitNo);
+                _sqlCommand.Parameters.AddWithValue("@SubjectNo", question.SubjectNo);
+                _sqlCommand.Parameters.AddWithValue("@UnitName", question.UnitName);
+                _sqlCommand.Parameters.AddWithValue("@SubjectName", question.SubjectName);
+                _sqlCommand.Parameters.AddWithValue("@OptionA", question.OptionA);
+                _sqlCommand.Parameters.AddWithValue("@OptionB", question.OptionB);
+                _sqlCommand.Parameters.AddWithValue("@OptionC", question.OptionC);
+                _sqlCommand.Parameters.AddWithValue("@OptionD", question.OptionD);
+                _sqlCommand.Parameters.AddWithValue("@QuestionStatus", 0);
+                _sqlCommand.Parameters.AddWithValue("@QuestionTxt", question.QuestionTxt);
+                _sqlCommand.Parameters.AddWithValue("QuestionImage", question.QuestionImage);
+                _sqlCommand.Parameters.AddWithValue("@RightOption", question.RightOption);
+                _sqlCommand.ExecuteNonQuery();
+                return new SuccessResult<Question>(data: question,success:"Soru başarıyla eklendi.");
+            }
         }
 
-        public BaseResult<List<Question>> LoadData() //istediğimiz sorunun verilerini çekiyor
+        public BaseResult<List<Question>> LoadData() //tüm sorunun verilerini çekiyor
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
 
@@ -62,6 +74,7 @@ namespace WinFormsApp1
             while (reader.Read()) //sql veri tabanındaki soruların hepsini okuyup listeye kaydediyoruz
             {
                 Question question = new Question();
+                question.QuestionId = (int)reader["QuestionID"];
                 question.UnitNo = (int)reader["UnitNo"];
                 question.SubjectNo = (int)reader["SubjectNo"];
                 question.UnitName = reader["UnitName"].ToString();
@@ -77,15 +90,15 @@ namespace WinFormsApp1
             }
             if(questionList.Count==0) //listede eleman varlığının kontrolü
             {
-                return new ErrorResult<List<Question>>(data: questionList, error: "Veritabanında veri bulunamadı");
+                return new ErrorResult<List<Question>>(data: questionList, error: "Veritabanında veri bulunamadı.");
             }
             else
             {
-                return new SuccessResult<List<Question>>(data: questionList);
+                return new SuccessResult<List<Question>>(data: questionList,success:"Bütün soru verileri çekildi.");
             }
         }
 
-        public BaseResult<Question> UploadQuestion(int questionId)
+        public BaseResult<Question> UploadQuestion(int questionId) //istediğimiz sorunun verilerini çekiyor
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
             _sqlCommand = new SqlCommand($"Select * from Questions WHERE QuestionID={questionId}", sqlConnection);
@@ -94,6 +107,7 @@ namespace WinFormsApp1
             Question question = new Question();
             if (reader.Read())
             {
+                question.QuestionId = (int)reader["QuestionID"];
                 question.UnitNo = (int)reader["UnitNo"];
                 question.SubjectNo = (int)reader["SubjectNo"];
                 question.UnitName = reader["UnitName"].ToString();
@@ -104,18 +118,45 @@ namespace WinFormsApp1
                 question.OptionD = reader["OptionD"].ToString();
                 question.RightOption = (int)reader["RightOption"];
                 question.QuestionImage = (Byte[])reader["QuestionImage"];
-                question.QuestionStatus = reader["QuestionStatus"].ToString();
+                question.QuestionStatus = (int)reader["QuestionStatus"];
                 question.QuestionTxt = reader["QuestionTxt"].ToString();
             }
             if(question.QuestionTxt=="")
             {
-                return new ErrorResult<Question>(data:question,error:"Soru bulunamadı");
+                return new ErrorResult<Question>(data:question,error:"Soru bulunamadı.");
             }
             else
             {
-                return new SuccessResult<Question>(data: question);
+                return new SuccessResult<Question>(data: question,success:"Soru Bulundu.");
             }
         }
+
+        /*public BaseResult<Question> DeleteQuestion()
+        {
+            SqlConnection sqlConnection = _sqlManager.sqlConnection();
+            _sqlCommand = new SqlCommand("Delete from Questions where QuestionID=@QuestionId", sqlConnection);
+            //_sqlCommand.Parameters.AddWithValue("@QuestionId", SqlDbType.Int).Value = id1.Text;
+            _sqlCommand.ExecuteNonQuery();
+            _sqlManager.sqlConnection().Close();
+
+        }*/
+
+        public BaseResult<Question> UpdateQuestion(int questionId)
+        {
+            SqlConnection sqlConnection = _sqlManager.sqlConnection();
+            _sqlCommand = new SqlCommand($"UPDATE Questions SET QuestionStatus=1 WHERE QuestionID={questionId} ", sqlConnection);
+            BaseResult<Question> dataResult = UploadQuestion(questionId);
+            MessageBox.Show(dataResult.data.QuestionStatus.ToString());
+            if (questionId==1)
+            {
+                return new SuccessResult<Question>(data: dataResult.data,success: "Soru onaylandı.");
+            }
+            else
+            {
+                return new ErrorResult<Question>(data: dataResult.data, error: "Soru güncellenemedi.");
+            }
+        }
+
 
     }
 }
