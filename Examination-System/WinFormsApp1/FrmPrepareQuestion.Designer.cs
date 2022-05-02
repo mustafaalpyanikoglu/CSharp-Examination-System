@@ -38,7 +38,7 @@ namespace WinFormsApp1
             this.UnitNameTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.Upload = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.QuestionRichTxt = new System.Windows.Forms.RichTextBox();
@@ -55,7 +55,7 @@ namespace WinFormsApp1
             this.OptionCTxt = new System.Windows.Forms.TextBox();
             this.OptionDTxt = new System.Windows.Forms.TextBox();
             this.Insert = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -150,15 +150,15 @@ namespace WinFormsApp1
             this.label5.TabIndex = 32;
             this.label5.Text = "Ünite Adı:";
             // 
-            // pictureBox2
+            // pictureBox
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
-            this.pictureBox2.Location = new System.Drawing.Point(229, 124);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(374, 235);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 39;
-            this.pictureBox2.TabStop = false;
+            this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.pictureBox.Location = new System.Drawing.Point(229, 124);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(374, 235);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 39;
+            this.pictureBox.TabStop = false;
             // 
             // Upload
             // 
@@ -347,7 +347,7 @@ namespace WinFormsApp1
             this.Controls.Add(this.QuestionRichTxt);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Upload);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.SubjectNameTxt);
             this.Controls.Add(this.UnitNameTxt);
             this.Controls.Add(this.label4);
@@ -363,8 +363,7 @@ namespace WinFormsApp1
             this.Name = "KodNoLbl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSinavHazirlamaModülü";
-            this.Load += new System.EventHandler(this.FrmSinavHazirlamaModülü_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,7 +379,7 @@ namespace WinFormsApp1
         private System.Windows.Forms.TextBox UnitNameTxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button Upload;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox QuestionRichTxt;
