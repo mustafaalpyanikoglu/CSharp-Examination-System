@@ -52,12 +52,18 @@ namespace WinFormsApp1
                 _user =new AdminAccount();
                 _user.UserName = kullaniciAdiTxt.Text;
                 _user.Password = sifreTxt.Text;
+                FrmQuestionConfirmation frmQuestionConfirmation = new FrmQuestionConfirmation();
+                frmQuestionConfirmation.Show();
+                this.Hide();
             }
             else if(this.userType==UserType.EXAMINER)
             {
                 _user = new ExaminerAccount();
                 _user.UserName = kullaniciAdiTxt.Text;
                 _user.Password = sifreTxt.Text;
+                KodNoLbl frmSinavHazirlamaModülü = new KodNoLbl();
+                frmSinavHazirlamaModülü.Show();
+                this.Hide();
             }
             else
             {
@@ -72,9 +78,6 @@ namespace WinFormsApp1
             }
             else
             {
-                KodNoLbl frmSinavHazirlamaModülü = new KodNoLbl();
-                frmSinavHazirlamaModülü.Show();
-                this.Hide();
                 //kullanıcı verilerini çekmek için
             }
 
