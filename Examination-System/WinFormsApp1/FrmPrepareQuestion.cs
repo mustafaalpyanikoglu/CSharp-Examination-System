@@ -15,38 +15,10 @@ namespace WinFormsApp1
     public partial class KodNoLbl : Form
     {
         private QuestionManager _questionManager = new QuestionManager();
-        private SqlManager _sqlManager = new SqlManager();
-        private SqlCommand _sqlCommand;
         
         public KodNoLbl()
         {
             InitializeComponent();
-        }
-
-        private void FrmSinavHazirlamaModülü_Load(object sender, EventArgs e)
-        {
-            datagridviewaSorularıYazdırma();
-
-            BaseResult<List<Question>> result = _questionManager.LoadData();
-            if(result.isSuccess)
-            {
-                //sqlde bulunan verilerin hepsini liste'de geri gönderdik
-                MessageBox.Show(result.data[0].QuestionTxt);
-            }
-            else
-            {
-                MessageBox.Show((result as ErrorResult<List<Question>>).error); //result'u errorresult olarak kabul ediyoruz
-            }
-        }
-
-        public void datagridviewaSorularıYazdırma()
-        {
-            SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select QuestionID,UnitNo,SubjectNo,UnitName,SubjectName,QuestionTxt from Questions ", sqlConnection);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            //dataGridView2.DataSource = dataTable;  
-
         }
         
         private void Upload_Click(object sender, EventArgs e)
@@ -55,7 +27,7 @@ namespace WinFormsApp1
             openFileDialog1.Filter = "Select image(*.JpG; *.png; *.Gif)|*.JpG; *.png; *.Gif";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pictureBox2.Image = Image.FromFile(openFileDialog1.FileName);
+                pictureBox.Image = Image.FromFile(openFileDialog1.FileName);
             }
         }
 
@@ -74,7 +46,7 @@ namespace WinFormsApp1
             question.QuestionTxt = QuestionRichTxt.Text;
             
             MemoryStream memoryStream = new MemoryStream(); //image array şeklinde tutuyoruz
-            pictureBox2.Image.Save(memoryStream, pictureBox2.Image.RawFormat);
+            pictureBox.Image.Save(memoryStream, pictureBox.Image.RawFormat);
             question.QuestionImage = memoryStream.ToArray();
             
             if (radioButtonA.Checked)
@@ -93,8 +65,27 @@ namespace WinFormsApp1
             {
                 question.RightOption = 4;
             }
+            BaseResult<Question> result=_questionManager.AddQuestionData(question);
+            if(result.isSuccess)
+            {
+                MessageBox.Show("Soru başarıyla eklendi.");
+                UnitNoTxt.Text = "";
+                SubjectNoTxt.Text = "";
+                UnitNameTxt.Text = "";
+                SubjectNameTxt.Text = "";
+                OptionATxt.Text = "";
+                OptionBTxt.Text = "";
+                OptionCTxt.Text = "";
+                OptionDTxt.Text = "";
+                QuestionRichTxt.Text = "";
+                pictureBox.Image = null;
+
+            }
+            else
+            {
+                MessageBox.Show("Yanlış bir veri girdiniz.");
+            }
             
-            _questionManager.AddQuestionData(question);
         }
     }
 }

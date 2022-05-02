@@ -42,7 +42,7 @@ namespace WinFormsApp1
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //datagridview'dan seçilen sorunun verilerini çekme
-            DialogResult result = MessageBox.Show("Doğru soruyu seçtiğinizden emin misiniz?", "Seçim kontrolü", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Doğru soruyu seçtiğinizden emin misiniz?", "Seçim onayı", MessageBoxButtons.YesNo);
             DataGridViewCell clickedCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
             if (result == DialogResult.Yes)
             {
@@ -50,6 +50,7 @@ namespace WinFormsApp1
                 {
                     int questionID = Convert.ToInt32(clickedCell.FormattedValue.ToString());
                     BaseResult<Question> dataResult = _questionManager.UploadQuestion(questionID); //<veri tipi>
+                    MessageBox.Show(dataResult.data.QuestionStatus.ToString());
                     //datagridview'da seçilen soruyu geri dönderiyor
                     if (dataResult is ErrorResult<Question>) //2.çözüm->if(!dataResult.isSuccess)
                     {
@@ -60,11 +61,12 @@ namespace WinFormsApp1
                         //MemoryStream ms = new MemoryStream(dataResult.data.QuestionImage);
                         //Image returnImage = Image.FromStream(ms);
                         //pictureBox1.Image = returnImage;
-                        //MessageBox.Show(dataResult.data.QuestionId.ToString());
+                        MessageBox.Show("else: "+dataResult.data.QuestionStatus.ToString());
                         if(_isApproveBtn)
                         {
                             BaseResult<Question> result2= _questionManager.UpdateQuestion(dataResult.data.QuestionId);
-                            if(result2 is ErrorResult<Question>)
+                            //MessageBox.Show(result2.data.QuestionStatus.ToString());
+                            if (result2 is ErrorResult<Question>)
                             {
                                 MessageBox.Show((result2 as ErrorResult<Question>).error);
                             }

@@ -12,28 +12,9 @@ namespace WinFormsApp1
 {
     class QuestionManager
     {
-        //private QuestionManager _questionManager = new QuestionManager();
         private SqlManager _sqlManager = new SqlManager();
         private SqlCommand _sqlCommand;
-        /*public void AddQuestionData(Question question)
-        {
-            SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            _sqlCommand = new SqlCommand("Insert into Questions(UnitNo,SubjectNo,UnitName,SubjectName,OptionA,OptionB,OptionC,OptionD,RightOption,QuestionImage,QuestionTxt,QuestionStatus)Values(@UnitNo,@SubjectNo,@UnitName,@SubjectName,@OptionA,@OptionB,@OptionC,@OptionD,@RightOption,@QuestionImage,@QuestionTxt,@QuestionStatus)", sqlConnection);
-            _sqlCommand.Parameters.AddWithValue("@UnitNo", question.UnitNo);
-            _sqlCommand.Parameters.AddWithValue("@SubjectNo", question.SubjectNo);
-            _sqlCommand.Parameters.AddWithValue("@UnitName", question.UnitName);
-            _sqlCommand.Parameters.AddWithValue("@SubjectName", question.SubjectName);
-            _sqlCommand.Parameters.AddWithValue("@OptionA", question.OptionA);
-            _sqlCommand.Parameters.AddWithValue("@OptionB", question.OptionB);
-            _sqlCommand.Parameters.AddWithValue("@OptionC", question.OptionC);
-            _sqlCommand.Parameters.AddWithValue("@OptionD", question.OptionD);
-            _sqlCommand.Parameters.AddWithValue("@QuestionStatus", 0);
-            _sqlCommand.Parameters.AddWithValue("@QuestionTxt", question.QuestionTxt);
-            _sqlCommand.Parameters.AddWithValue("QuestionImage", question.QuestionImage);
-            _sqlCommand.Parameters.AddWithValue("@RightOption", question.RightOption);
-            _sqlCommand.ExecuteNonQuery();
-            MessageBox.Show("Data Inserted Successfull");
-        }*/
+        
         public BaseResult<Question> AddQuestionData(Question question)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
@@ -146,7 +127,7 @@ namespace WinFormsApp1
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
             _sqlCommand = new SqlCommand($"UPDATE Questions SET QuestionStatus=1 WHERE QuestionID={questionId} ", sqlConnection);
             BaseResult<Question> dataResult = UploadQuestion(questionId);
-            MessageBox.Show(dataResult.data.QuestionStatus.ToString());
+            MessageBox.Show("değiştirilen değer:"+dataResult.data.QuestionStatus.ToString());
             if (questionId==1)
             {
                 return new SuccessResult<Question>(data: dataResult.data,success: "Soru onaylandı.");
