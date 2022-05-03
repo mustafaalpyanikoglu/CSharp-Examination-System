@@ -128,7 +128,7 @@ namespace WinFormsApp1
             _sqlCommand = new SqlCommand($"UPDATE Questions SET QuestionStatus=1 WHERE QuestionID={questionId} ", sqlConnection);
             BaseResult<Question> dataResult = UploadQuestion(questionId);
             MessageBox.Show("değiştirilen değer:"+dataResult.data.QuestionStatus.ToString());
-            if (questionId==1)
+            if (dataResult.data.QuestionStatus==1)
             {
                 return new SuccessResult<Question>(data: dataResult.data,success: "Soru onaylandı.");
             }

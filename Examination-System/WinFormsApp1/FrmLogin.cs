@@ -52,8 +52,8 @@ namespace WinFormsApp1
                 _user =new AdminAccount();
                 _user.UserName = kullaniciAdiTxt.Text;
                 _user.Password = sifreTxt.Text;
-                FrmQuestionConfirmation frmQuestionConfirmation = new FrmQuestionConfirmation();
-                frmQuestionConfirmation.Show();
+                FrmAdminMenu frmAdminMenu = new FrmAdminMenu();
+                frmAdminMenu.Show();
                 this.Hide();
             }
             else if(this.userType==UserType.EXAMINER)

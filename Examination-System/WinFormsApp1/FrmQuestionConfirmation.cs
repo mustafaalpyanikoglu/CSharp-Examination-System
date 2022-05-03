@@ -23,16 +23,10 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
-        private void ApproveBTN_Click(object sender, EventArgs e)
-        {
-            _isApproveBtn = true;
-
-        }
-
         public void datagridviewaSorularıYazdırma()
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select QuestionID,UnitNo,SubjectNo,UnitName,SubjectName,OptionA,OptionB,OptionC,OptionD,RightOption,QuestionImage,QuestionStatus,QuestionTxt from Questions ", sqlConnection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select * from Questions ", sqlConnection);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;  
@@ -50,7 +44,7 @@ namespace WinFormsApp1
                 {
                     int questionID = Convert.ToInt32(clickedCell.FormattedValue.ToString());
                     BaseResult<Question> dataResult = _questionManager.UploadQuestion(questionID); //<veri tipi>
-                    MessageBox.Show(dataResult.data.QuestionStatus.ToString());
+                    MessageBox.Show(questionID+"    "+dataResult.data.QuestionStatus.ToString());
                     //datagridview'da seçilen soruyu geri dönderiyor
                     if (dataResult is ErrorResult<Question>) //2.çözüm->if(!dataResult.isSuccess)
                     {
@@ -61,11 +55,10 @@ namespace WinFormsApp1
                         //MemoryStream ms = new MemoryStream(dataResult.data.QuestionImage);
                         //Image returnImage = Image.FromStream(ms);
                         //pictureBox1.Image = returnImage;
-                        MessageBox.Show("else: "+dataResult.data.QuestionStatus.ToString());
-                        if(_isApproveBtn)
+                        if(true)
                         {
                             BaseResult<Question> result2= _questionManager.UpdateQuestion(dataResult.data.QuestionId);
-                            //MessageBox.Show(result2.data.QuestionStatus.ToString());
+                            MessageBox.Show("değişmesi gerek yer:"+result2.data.QuestionStatus.ToString());
                             if (result2 is ErrorResult<Question>)
                             {
                                 MessageBox.Show((result2 as ErrorResult<Question>).error);
@@ -83,6 +76,23 @@ namespace WinFormsApp1
         private void FrmQuestionConfirmation_Load(object sender, EventArgs e)
         {
             datagridviewaSorularıYazdırma();
+        }
+
+        private void onaylaBTN_Click(object sender, EventArgs e)
+        {
+            _isApproveBtn = true;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void KapatBTN_Click(object sender, EventArgs e)
+        {
+            FrmAdminMenu frmAdminMenu = new FrmAdminMenu();
+            frmAdminMenu.Show();
+            this.Hide();
         }
     }
 }
