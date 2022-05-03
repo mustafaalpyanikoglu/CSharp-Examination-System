@@ -166,7 +166,7 @@ namespace WinFormsApp1
             this.SifreUnuttumBTN.Text = "Şifremi Unuttum";
             this.SifreUnuttumBTN.UseVisualStyleBackColor = false;
             // 
-            // FrmGiris
+            // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,7 +186,7 @@ namespace WinFormsApp1
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "FrmGiris";
+            this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGiris";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -69,10 +69,10 @@ namespace WinFormsApp1
             if(result.isSuccess)
             {
                 MessageBox.Show("Soru başarıyla eklendi.");
-                UnitNoTxt.Text = "";
+                /*UnitNoTxt.Text = "";
                 SubjectNoTxt.Text = "";
                 UnitNameTxt.Text = "";
-                SubjectNameTxt.Text = "";
+                SubjectNameTxt.Text = "";*/
                 OptionATxt.Text = "";
                 OptionBTxt.Text = "";
                 OptionCTxt.Text = "";
