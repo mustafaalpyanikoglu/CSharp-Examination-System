@@ -43,6 +43,41 @@ namespace WinFormsApp1
             }
         }
 
+        public BaseResult<List<Question>> RandomQuestion()
+        {
+            SqlConnection sqlConnection = _sqlManager.sqlConnection();
+            _sqlCommand = new SqlCommand("select top 10* from Questions order by newid()", sqlConnection);
+
+            List<Question> questionList = new List<Question>();
+            _sqlCommand.ExecuteNonQuery();
+            SqlDataReader reader = _sqlCommand.ExecuteReader();
+            while (reader.Read()) //sql veri tabanındaki soruların hepsini okuyup listeye kaydediyoruz
+            {
+                Question question = new Question();
+                question.QuestionId = (int)reader["QuestionID"];
+                question.UnitNo = (int)reader["UnitNo"];
+                question.SubjectNo = (int)reader["SubjectNo"];
+                question.UnitName = reader["UnitName"].ToString();
+                question.SubjectName = reader["SubjectName"].ToString();
+                question.OptionA = reader["OptionA"].ToString();
+                question.OptionB = reader["OptionB"].ToString();
+                question.OptionC = reader["OptionC"].ToString();
+                question.OptionD = reader["OptionD"].ToString();
+                question.RightOption = (int)reader["RightOption"];
+                question.QuestionTxt = reader["QuestionTxt"].ToString();
+                questionList.Add(question);
+                //MessageBox.Show(String.Format("{0}", reader["QuestionTxt"]));
+            }
+            if (questionList.Count == 0) //listede eleman varlığının kontrolü
+            {
+                return new ErrorResult<List<Question>>(data: questionList, error: "Veritabanında veri bulunamadı.");
+            }
+            else
+            {
+                return new SuccessResult<List<Question>>(data: questionList, success: "Random soru verileri çekildi.");
+            }
+        }
+
         public BaseResult<List<Question>> LoadData() //tüm sorunun verilerini çekiyor
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
