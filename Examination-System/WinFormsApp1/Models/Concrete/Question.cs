@@ -10,6 +10,7 @@ namespace WinFormsApp1
 {
     public class Question
     {
+        //Soru'da neler bulunacağını tanımladık
         private int questionId;
         public int QuestionId
         {

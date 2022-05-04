@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    class ErrorConstant
+    class ErrorConstant //hatalı ifadelerin tanımını saklar
     {
         public string QuestionNotFound = "Soru bulunamadı.";
         public string UserNotFound = "Kullanıcı bulunamadı.";

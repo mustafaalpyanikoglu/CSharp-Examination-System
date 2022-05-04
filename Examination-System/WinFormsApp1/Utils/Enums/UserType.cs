@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    public enum UserType //admin müşteri girişi için tip belirledik
+    public enum UserType //Bu tipler sayesinde Hangi işlemi kimin yapabileceğini sınırlandırıyoruz.
     {
-        ADMIN,
-        EXAMINER,
-        CUSTOMER
+        ADMIN, //admin
+        EXAMINER, //sınav sorumlusu
+        CUSTOMER //müşteri-öğrenci
     }
 }
