@@ -14,7 +14,7 @@ namespace WinFormsApp1
 {
     public partial class KodNoLbl : Form
     {
-        private QuestionManager _questionManager = new QuestionManager();
+        private IQuestionService _questionManager = new QuestionManager();
         
         public KodNoLbl()
         {

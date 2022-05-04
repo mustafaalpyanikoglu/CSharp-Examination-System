@@ -52,18 +52,12 @@ namespace WinFormsApp1
                 _user =new AdminAccount();
                 _user.UserName = kullaniciAdiTxt.Text;
                 _user.Password = sifreTxt.Text;
-                FrmAdminMenu frmAdminMenu = new FrmAdminMenu();
-                frmAdminMenu.Show();
-                this.Hide();
             }
             else if(this.userType==UserType.EXAMINER)
             {
                 _user = new ExaminerAccount();
                 _user.UserName = kullaniciAdiTxt.Text;
                 _user.Password = sifreTxt.Text;
-                KodNoLbl frmSinavHazirlamaModülü = new KodNoLbl();
-                frmSinavHazirlamaModülü.Show();
-                this.Hide();
             }
             else
             {
@@ -78,9 +72,29 @@ namespace WinFormsApp1
             }
             else
             {
-                //kullanıcı verilerini çekmek için
+                NavigateToHomeControl(this.userType);
             }
 
+        }
+
+        public void NavigateToHomeControl(UserType userType)
+        {
+            if(userType==UserType.ADMIN)
+            {
+                FrmAdminMenu frmAdminMenu = new FrmAdminMenu();
+                frmAdminMenu.Show();
+                this.Hide();
+            }
+            else if(userType==UserType.EXAMINER)
+            {
+                KodNoLbl frmSinavHazirlamaModülü = new KodNoLbl();
+                frmSinavHazirlamaModülü.Show();
+                this.Hide();
+            }
+            else
+            {
+                //öğrenci için navigate
+            }
         }
     }
 }
