@@ -8,6 +8,7 @@ namespace WinFormsApp1
 {
     public abstract class User
     {
+        //Kullanıcı'da hangi bilgiler bulunacağını içeriyor.
         private string nameSurname;
         public string NameSurname
         {

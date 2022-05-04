@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    abstract class BaseResult<T> //Generic type
+    abstract class BaseResult<T> //Generic type ile verileleri hem geri dönderebiliyoruz hemde veriyi çektiğimizin kontrolünü yapabiliyoruz.
     {
         public bool isSuccess;
 
