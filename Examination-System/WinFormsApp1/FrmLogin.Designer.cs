@@ -165,6 +165,7 @@ namespace WinFormsApp1
             this.SifreUnuttumBTN.TabStop = false;
             this.SifreUnuttumBTN.Text = "Şifremi Unuttum";
             this.SifreUnuttumBTN.UseVisualStyleBackColor = false;
+            this.SifreUnuttumBTN.Click += new System.EventHandler(this.SifreUnuttumBTN_Click);
             // 
             // FrmLogin
             // 

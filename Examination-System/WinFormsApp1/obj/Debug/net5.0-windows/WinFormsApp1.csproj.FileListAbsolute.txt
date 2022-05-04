@@ -30,3 +30,4 @@ C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debu
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.FrmQuestionConfirmation.resources
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.FrmAdminMenu.resources
 C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.FrmPrepareExam.resources
+C:\Users\Alp\Desktop\Examination-System\Examination-System\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.FrmForgotPassword.resources

@@ -13,5 +13,6 @@ namespace WinFormsApp1
         public string DataNotFound = "Veri tabanında veri bulunuamadı.";
         public string DataNotAdded = "Veri tabanına veri eklenemedi";
         public string QuestionNotUpdate = "Soru güncellenemedi";
+        public string Error = "Hata";
     }
 }

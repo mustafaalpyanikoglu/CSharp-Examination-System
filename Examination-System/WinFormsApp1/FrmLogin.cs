@@ -13,21 +13,17 @@ namespace WinFormsApp1
 {
     partial class FrmLogin : Form
     {
-        FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
-
-        private UserType userType;
-
-        private IAuthService _authService = new AuthManager();
+        private UserType _userType;
 
         public FrmLogin(UserType userType)
         {
             InitializeComponent();
-            this.userType = userType;
+            this._userType = userType;
         }
 
         private void kayıtOlBTN_Click(object sender, EventArgs e)
         {
-            FrmRegister frmKayit = new FrmRegister(this.userType);
+            FrmRegister frmKayit = new FrmRegister(this._userType);
             frmKayit.Show();
             this.Hide();
         }
@@ -47,13 +43,13 @@ namespace WinFormsApp1
         {
             IAuthService authService = new AuthManager();
             User _user;
-            if(this.userType==UserType.ADMIN)
+            if(this._userType==UserType.ADMIN)
             {
                 _user =new AdminAccount();
                 _user.UserName = kullaniciAdiTxt.Text;
                 _user.Password = sifreTxt.Text;
             }
-            else if(this.userType==UserType.EXAMINER)
+            else if(this._userType==UserType.EXAMINER)
             {
                 _user = new ExaminerAccount();
                 _user.UserName = kullaniciAdiTxt.Text;
@@ -65,14 +61,14 @@ namespace WinFormsApp1
                 _user.UserName = kullaniciAdiTxt.Text;
                 _user.Password = sifreTxt.Text;
             }
-            BaseResult<User> result= authService.Login(_user, this.userType);
+            BaseResult<User> result= authService.Login(_user, this._userType);
             if(!result.isSuccess)
             {
                 MessageBox.Show("Hatalı");
             }
             else
             {
-                NavigateToHomeControl(this.userType);
+                NavigateToHomeControl(this._userType);
             }
 
         }
@@ -95,6 +91,15 @@ namespace WinFormsApp1
             {
                 //öğrenci için navigate
             }
+        }
+
+        private void SifreUnuttumBTN_Click(object sender, EventArgs e)
+        {
+            UserType userType = this._userType;
+            FrmForgotPassword frmForgotPassword = new FrmForgotPassword(userType);
+            frmForgotPassword.Show();
+            this.Hide();
+
         }
     }
 }

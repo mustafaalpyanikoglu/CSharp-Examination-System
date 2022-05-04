@@ -10,5 +10,6 @@ namespace WinFormsApp1
     {
         BaseResult<User> Login(User kisi,UserType userType);
         void Register(User kisi, UserType userType);
+        BaseResult<User> ForgotPassword(User kisi, UserType userType);
     }
 }
