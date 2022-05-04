@@ -14,7 +14,7 @@ namespace WinFormsApp1
 {
     public partial class FrmQuestionConfirmation : Form
     {
-        private QuestionManager _questionManager = new QuestionManager();
+        private IQuestionService _questionManager = new QuestionManager();
         private SqlManager _sqlManager = new SqlManager();
         private bool _isApproveBtn = false;
 
@@ -43,8 +43,7 @@ namespace WinFormsApp1
                 if (clickedCell.Value != null)// datagridview'a tıklama kontrolü
                 {
                     int questionID = Convert.ToInt32(clickedCell.FormattedValue.ToString());
-                    BaseResult<Question> dataResult = _questionManager.UploadQuestion(questionID); //<veri tipi>
-                    MessageBox.Show(questionID+"    "+dataResult.data.QuestionStatus.ToString());
+                    BaseResult<Question> dataResult = _questionManager.GetQuestionById(questionID); //<veri tipi>
                     //datagridview'da seçilen soruyu geri dönderiyor
                     if (dataResult is ErrorResult<Question>) //2.çözüm->if(!dataResult.isSuccess)
                     {
@@ -55,18 +54,15 @@ namespace WinFormsApp1
                         //MemoryStream ms = new MemoryStream(dataResult.data.QuestionImage);
                         //Image returnImage = Image.FromStream(ms);
                         //pictureBox1.Image = returnImage;
-                        if(true)
+                        BaseResult<Question> result2= _questionManager.UpdateQuestion(dataResult.data.QuestionId);
+                        if (result2 is ErrorResult<Question>)
                         {
-                            BaseResult<Question> result2= _questionManager.UpdateQuestion(dataResult.data.QuestionId);
-                            MessageBox.Show("değişmesi gerek yer:"+result2.data.QuestionStatus.ToString());
-                            if (result2 is ErrorResult<Question>)
-                            {
-                                MessageBox.Show((result2 as ErrorResult<Question>).error);
-                            }
-                            else
-                            {
-                                MessageBox.Show((result2 as SuccessResult<Question>).success);
-                            }
+                            MessageBox.Show((result2 as ErrorResult<Question>).error);
+                        }
+                        else
+                        {
+                            MessageBox.Show((result2 as SuccessResult<Question>).success);
+                            datagridviewaSorularıYazdırma();
                         }
                     }
                 }

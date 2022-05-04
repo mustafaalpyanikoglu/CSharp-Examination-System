@@ -10,7 +10,7 @@ using System.Data;
 
 namespace WinFormsApp1
 {
-    class QuestionManager
+    class QuestionManager:IQuestionService
     {
         private SqlManager _sqlManager = new SqlManager();
         private SqlCommand _sqlCommand;
@@ -114,7 +114,7 @@ namespace WinFormsApp1
             }
         }
 
-        public BaseResult<Question> UploadQuestion(int questionId) //istediğimiz sorunun verilerini çekiyor
+        public BaseResult<Question> GetQuestionById(int questionId) //istediğimiz sorunun verilerini çekiyor
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
             _sqlCommand = new SqlCommand($"Select * from Questions WHERE QuestionID={questionId}", sqlConnection);
@@ -161,8 +161,8 @@ namespace WinFormsApp1
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
             _sqlCommand = new SqlCommand($"UPDATE Questions SET QuestionStatus=1 WHERE QuestionID={questionId} ", sqlConnection);
-            BaseResult<Question> dataResult = UploadQuestion(questionId);
-            MessageBox.Show("değiştirilen değer:"+dataResult.data.QuestionStatus.ToString());
+            _sqlCommand.ExecuteNonQuery();
+            BaseResult<Question> dataResult = GetQuestionById(questionId);
             if (dataResult.data.QuestionStatus==1)
             {
                 return new SuccessResult<Question>(data: dataResult.data,success: "Soru onaylandı.");
