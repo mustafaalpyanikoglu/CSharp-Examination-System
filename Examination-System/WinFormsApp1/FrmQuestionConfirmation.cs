@@ -22,14 +22,33 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
+        public void dataGridViewTasarım()
+        {
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(32, 36, 48);
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(78, 184, 206);
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
+
+            for (int columnIndex = 0; columnIndex < dataGridView1.Columns.Count; columnIndex++)
+            {
+                for (int rowIndex = 0; rowIndex < dataGridView1.Rows.Count; rowIndex++)
+                {
+                    dataGridView1.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.FromArgb(32, 36, 48);
+                    dataGridView1.Rows[rowIndex].Cells[columnIndex].Style.ForeColor = Color.FromArgb(78, 184, 206);
+                }
+            }
+        }
 
         public void datagridviewaSorularıYazdırma()
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select * from Questions ", sqlConnection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select QuestionID from Questions ", sqlConnection);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
-            dataGridView1.DataSource = dataTable;  
+            dataGridView1.DataSource = dataTable;
+
+            dataGridViewTasarım();
 
         }
 
@@ -90,5 +109,7 @@ namespace WinFormsApp1
             frmAdminMenu.Show();
             this.Hide();
         }
+
+        
     }
 }

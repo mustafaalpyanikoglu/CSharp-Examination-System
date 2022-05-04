@@ -14,6 +14,8 @@ namespace WinFormsApp1
     {
         private SqlManager _sqlManager = new SqlManager();
         private SqlCommand _sqlCommand;
+        private ErrorConstant _errorConstants = new ErrorConstant();
+        private SuccessConstant _successConstant = new SuccessConstant();
         
         public BaseResult<Question> AddQuestionData(Question question)
         {
@@ -21,7 +23,7 @@ namespace WinFormsApp1
 
             if(question.UnitNo==0)
             {
-                return new ErrorResult<Question>(data: question, error: "Veritabanına veri eklenemedi.");
+                return new ErrorResult<Question>(data: question, error: _errorConstants.DataNotAdded);
             }
             else
             {
@@ -39,7 +41,7 @@ namespace WinFormsApp1
                 _sqlCommand.Parameters.AddWithValue("QuestionImage", question.QuestionImage);
                 _sqlCommand.Parameters.AddWithValue("@RightOption", question.RightOption);
                 _sqlCommand.ExecuteNonQuery();
-                return new SuccessResult<Question>(data: question,success:"Soru başarıyla eklendi.");
+                return new SuccessResult<Question>(data: question,success:_successConstant.AddQuestion);
             }
         }
 
@@ -70,11 +72,11 @@ namespace WinFormsApp1
             }
             if (questionList.Count == 0) //listede eleman varlığının kontrolü
             {
-                return new ErrorResult<List<Question>>(data: questionList, error: "Veritabanında veri bulunamadı.");
+                return new ErrorResult<List<Question>>(data: questionList, error: _errorConstants.DataNotFound);
             }
             else
             {
-                return new SuccessResult<List<Question>>(data: questionList, success: "Random soru verileri çekildi.");
+                return new SuccessResult<List<Question>>(data: questionList, success: _successConstant.RandomQuestionFound);
             }
         }
 
@@ -106,11 +108,11 @@ namespace WinFormsApp1
             }
             if(questionList.Count==0) //listede eleman varlığının kontrolü
             {
-                return new ErrorResult<List<Question>>(data: questionList, error: "Veritabanında veri bulunamadı.");
+                return new ErrorResult<List<Question>>(data: questionList, error: _errorConstants.DataNotFound);
             }
             else
             {
-                return new SuccessResult<List<Question>>(data: questionList,success:"Bütün soru verileri çekildi.");
+                return new SuccessResult<List<Question>>(data: questionList,success:_successConstant.AllQuestionFound);
             }
         }
 
@@ -139,11 +141,11 @@ namespace WinFormsApp1
             }
             if(question.QuestionTxt=="")
             {
-                return new ErrorResult<Question>(data:question,error:"Soru bulunamadı.");
+                return new ErrorResult<Question>(data:question,error:_errorConstants.QuestionNotFound);
             }
             else
             {
-                return new SuccessResult<Question>(data: question,success:"Soru Bulundu.");
+                return new SuccessResult<Question>(data: question,success:_successConstant.QuestionFound);
             }
         }
 
@@ -160,16 +162,16 @@ namespace WinFormsApp1
         public BaseResult<Question> UpdateQuestion(int questionId)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            _sqlCommand = new SqlCommand($"UPDATE Questions SET QuestionStatus=1 WHERE QuestionID={questionId} ", sqlConnection);
+            _sqlCommand = new SqlCommand($"UPDATE Questions,QuestionStatus SET QuestionStatus=1 WHERE QuestionID={questionId} ", sqlConnection);
             _sqlCommand.ExecuteNonQuery();
             BaseResult<Question> dataResult = GetQuestionById(questionId);
             if (dataResult.data.QuestionStatus==1)
             {
-                return new SuccessResult<Question>(data: dataResult.data,success: "Soru onaylandı.");
+                return new SuccessResult<Question>(data: dataResult.data,success: _successConstant.QuestionApproved);
             }
             else
             {
-                return new ErrorResult<Question>(data: dataResult.data, error: "Soru güncellenemedi.");
+                return new ErrorResult<Question>(data: dataResult.data, error: _errorConstants.QuestionNotUpdate);
             }
         }
 

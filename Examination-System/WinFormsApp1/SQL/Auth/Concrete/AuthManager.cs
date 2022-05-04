@@ -53,11 +53,13 @@ namespace WinFormsApp1
             command.Dispose();
             if(result)
             {
-                return new SuccessResult<User>(data:user ,success:"Kullanıcı bulundu");
+                SuccessConstant successConstant = new SuccessConstant();
+                return new SuccessResult<User>(data:user ,success:successConstant.UserFound);
             }
             else
             {
-                return new ErrorResult<User>(data:user,error:"Kullanıcı bulunamadı");
+                ErrorConstant errorConstants = new ErrorConstant();
+                return new ErrorResult<User>(data:user,error:errorConstants.UserNotFound);
             }
         }
 
