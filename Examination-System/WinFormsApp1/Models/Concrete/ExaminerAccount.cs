@@ -9,6 +9,8 @@ namespace WinFormsApp1
 {
     class ExaminerAccount:User
     {
+        private SqlCommand _sqlCommand;
+        private SqlManager _sqlManager = new SqlManager();
         public override void SaveData() //admin bilgilerini kaydediyoruz
         {
             SqlManager sqlManager = new SqlManager();
@@ -21,5 +23,21 @@ namespace WinFormsApp1
             komut.ExecuteNonQuery();
             sqlManager.sqlConnection().Close();
         }
+
+        /*public override void DataControl(string kullaniciAd,string mail)
+        {
+            SqlConnection sqlConnection = _sqlManager.sqlConnection();
+            _sqlManager.sqlConnection();
+            _sqlCommand = new SqlCommand($"Select * from ExaminerAccounts WHERE kullaniciadi={kullaniciAd} and email={mail}  ", sqlConnection);
+            SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+            User user = new ExaminerAccount();
+            if(reader.Read())
+            {
+                user.Password= reader["sifre"].ToString();
+            }
+
+        }*/
+           
     }
 }

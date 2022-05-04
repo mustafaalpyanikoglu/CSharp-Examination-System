@@ -9,57 +9,107 @@ namespace WinFormsApp1
 {
     class AuthManager : IAuthService
     {
-        public BaseResult<User> Login(User kisi, UserType userType)
+        private SqlManager _sqlManager = new SqlManager();
+        private SqlCommand _command;
+        private User _user;
+        private bool _result;
+        public BaseResult<User> ForgotPassword(User kisi,UserType userType)
         {
-            SqlManager sqlManager = new SqlManager();
-            SqlCommand command;
-            SqlConnection connection = sqlManager.sqlConnection();
-            User user;
-            bool result = false;
-            if (userType == UserType.ADMIN) //Admin musteri girisine göre değerlendirme yapılacak
+            SqlConnection sqlConnection = _sqlManager.sqlConnection();
+            if (userType== UserType.ADMIN)
             {
-                user = new AdminAccount();
-                command = new SqlCommand("Select * From adminHesaplari where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+                _user = new AdminAccount();
+                _command = new SqlCommand("Select * From adminHesaplari where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
+
             }
-            else if (userType == UserType.EXAMINER) //Admin musteri girisine göre değerlendirme yapılacak
+            else if(userType==UserType.EXAMINER)
             {
-                user = new AdminAccount();
-                command = new SqlCommand("Select * From ExaminerAccounts where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+                _user = new ExaminerAccount();
+                _command = new SqlCommand("Select * From ExaminerAccounts where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
             }
             else
             {
-                user = new MusteriAccount();
-                command = new SqlCommand("Select * From musteriHesaplari where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+                _user = new MusteriAccount();
+                _command = new SqlCommand("Select * From musteriHesaplari where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
+            }
+            _command.Connection = sqlConnection;
+
+            SqlDataReader reader = _command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                _result = true;
+                while (reader.Read()) //veritabanındaki bilgileri okuyoruz
+                {
+                    _user.Password = reader["sifre"].ToString();
+                }
+            }
+            else
+            {
+                _result = false;
+            }
+            _sqlManager.sqlConnection().Close();
+            _command.Dispose();
+            if (_result)
+            {
+                SuccessConstant successConstant = new SuccessConstant();
+                return new SuccessResult<User>(data: _user, success: successConstant.UserFound);
+            }
+            else
+            {
+                ErrorConstant errorConstants = new ErrorConstant();
+                return new ErrorResult<User>(data: _user, error: errorConstants.UserNotFound);
             }
 
-            command.Connection = connection;
+        }
+
+        public BaseResult<User> Login(User kisi, UserType userType)
+        {
+            SqlConnection connection = _sqlManager.sqlConnection();
+            if (userType == UserType.ADMIN) //Admin musteri girisine göre değerlendirme yapılacak
+            {
+                _user = new AdminAccount();
+                _command = new SqlCommand("Select * From adminHesaplari where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+            }
+            else if (userType == UserType.EXAMINER) //Admin musteri girisine göre değerlendirme yapılacak
+            {
+                _user = new AdminAccount();
+                _command = new SqlCommand("Select * From ExaminerAccounts where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+            }
+            else
+            {
+                _user = new MusteriAccount();
+                _command = new SqlCommand("Select * From musteriHesaplari where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+            }
+
+            _command.Connection = connection;
                 
-            SqlDataReader sqlDataReader = command.ExecuteReader();
+            SqlDataReader sqlDataReader = _command.ExecuteReader();
             
             if(sqlDataReader.HasRows)
             {
-                result = true;
+                _result = true;
                 while (sqlDataReader.Read()) //veritabanındaki bilgileri okuyoruz
                 {
-                    user.NameSurname = sqlDataReader["adsoyad"].ToString();
+                    _user.NameSurname = sqlDataReader["adsoyad"].ToString();
 
                 }
             }
             else
             {
-                result = false;
+                _result = false;
             }
-            sqlManager.sqlConnection().Close();
-            command.Dispose();
-            if(result)
+            _sqlManager.sqlConnection().Close();
+            _command.Dispose();
+            if(_result)
             {
                 SuccessConstant successConstant = new SuccessConstant();
-                return new SuccessResult<User>(data:user ,success:successConstant.UserFound);
+                return new SuccessResult<User>(data:_user ,success:successConstant.UserFound);
             }
             else
             {
                 ErrorConstant errorConstants = new ErrorConstant();
-                return new ErrorResult<User>(data:user,error:errorConstants.UserNotFound);
+                return new ErrorResult<User>(data:_user,error:errorConstants.UserNotFound);
             }
         }
 
