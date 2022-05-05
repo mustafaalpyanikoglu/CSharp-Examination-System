@@ -16,13 +16,13 @@ namespace WinFormsApp1
     {
         private IQuestionService _questionManager = new QuestionManager();
         private SqlManager _sqlManager = new SqlManager();
-        private bool _isApproveBtn = false;
+        private int _selectedQuestionID = 0;
 
         public FrmQuestionConfirmation()
         {
             InitializeComponent();
         }
-        public void dataGridViewTasarım()
+        public void DesignDataGridView()
         {
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(32, 36, 48);
@@ -40,15 +40,14 @@ namespace WinFormsApp1
             }
         }
 
-        public void datagridviewaSorularıYazdırma()
+        public void FillDatagridview()
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select QuestionID from Questions ", sqlConnection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select QuestionID from Questions Where QuestionStatus=0 ", sqlConnection);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
-
-            dataGridViewTasarım();
+            DesignDataGridView();
 
         }
 
@@ -64,52 +63,109 @@ namespace WinFormsApp1
                     int questionID = Convert.ToInt32(clickedCell.FormattedValue.ToString());
                     BaseResult<Question> dataResult = _questionManager.GetQuestionById(questionID); //<veri tipi>
                     //datagridview'da seçilen soruyu geri dönderiyor
-                    if (dataResult is ErrorResult<Question>) //2.çözüm->if(!dataResult.isSuccess)
+                    if (dataResult is ErrorResult<Question>)
                     {
                         MessageBox.Show((dataResult as ErrorResult<Question>).error);
                     }
                     else
                     {
-                        //MemoryStream ms = new MemoryStream(dataResult.data.QuestionImage);
-                        //Image returnImage = Image.FromStream(ms);
-                        //pictureBox1.Image = returnImage;
-                        BaseResult<Question> result2= _questionManager.UpdateQuestion(dataResult.data.QuestionId);
-                        if (result2 is ErrorResult<Question>)
-                        {
-                            MessageBox.Show((result2 as ErrorResult<Question>).error);
-                        }
-                        else
-                        {
-                            MessageBox.Show((result2 as SuccessResult<Question>).success);
-                            datagridviewaSorularıYazdırma();
-                        }
+                        SetLoadedQuestion(dataResult.data);
+                        _selectedQuestionID = (int)clickedCell.Value;
                     }
                 }
             }
         }
 
+        private void SetLoadedQuestion(Question question)
+        {
+            SubjectNoTxt.Text = question.SubjectNo.ToString();
+            UnitNoTxt.Text = question.UnitNo.ToString();
+            UnitNameTxt.Text = question.UnitName;
+            SubjectNameTxt.Text = question.SubjectName;
+            OptionATxt.Text = question.OptionA;
+            OptionBTxt.Text = question.OptionB;
+            OptionCTxt.Text = question.OptionC;
+            OptionDTxt.Text = question.OptionD;
+            QuestionRichTxt.Text = question.QuestionTxt;
+            MemoryStream ms = new MemoryStream(question.QuestionImage);
+            Image returnImage = Image.FromStream(ms);
+            pictureBox.Image = returnImage;
+
+            int rightOption = question.RightOption;
+            if (rightOption == 1)
+            {
+                radioButtonA.Checked = true;
+            }
+            else if (rightOption == 2)
+            {
+                radioButtonB.Checked = true;
+            }
+            else if (rightOption == 3)
+            {
+                radioButtonC.Checked = true;
+            }
+            else
+            {
+                radioButtonD.Checked = true;
+            }
+        }
+
+        public void ClearLoaded()
+        {
+            SubjectNoTxt.Text = "";
+            UnitNoTxt.Text = "";
+            UnitNameTxt.Text = "";
+            SubjectNameTxt.Text = "";
+            OptionATxt.Text = "";
+            OptionBTxt.Text = "";
+            OptionCTxt.Text = "";
+            OptionDTxt.Text = "";
+            QuestionRichTxt.Text = "";
+            pictureBox.Image = null;
+            radioButtonA.Checked = false;
+            radioButtonB.Checked = false;
+            radioButtonC.Checked = false;
+            radioButtonD.Checked = false;
+        }
+
+        
+
         private void FrmQuestionConfirmation_Load(object sender, EventArgs e)
         {
-            datagridviewaSorularıYazdırma();
+            FillDatagridview();
         }
 
-        private void onaylaBTN_Click(object sender, EventArgs e)
-        {
-            _isApproveBtn = true;
-        }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void KapatBTN_Click(object sender, EventArgs e)
+        private void closePictureBox_Click(object sender, EventArgs e)
         {
             FrmAdminMenu frmAdminMenu = new FrmAdminMenu();
             frmAdminMenu.Show();
             this.Hide();
         }
 
-        
+        private void onaylaBTN_Click(object sender, EventArgs e)
+        {
+           
+            if (_selectedQuestionID!=0)
+            {
+                BaseResult<Question> result2 = _questionManager.UpdateQuestion(_selectedQuestionID);
+                if (result2 is SuccessResult<Question>)
+                {
+                    MessageBox.Show((result2 as SuccessResult<Question>).success);
+                    FillDatagridview();
+                    _selectedQuestionID = 0;
+                    ClearLoaded();
+                }
+                else
+                {
+                    MessageBox.Show((result2 as ErrorResult<Question>).error);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir soru seçiniz.");
+            }
+        }
     }
 }

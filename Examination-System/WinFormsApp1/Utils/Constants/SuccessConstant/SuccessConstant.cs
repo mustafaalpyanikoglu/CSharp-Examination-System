@@ -14,7 +14,6 @@ namespace WinFormsApp1
         public string AllQuestionFound = "Bütün soru verileri veri tabanından çekildi.";
         public string QuestionFound = "Soru bulundu.";
         public string QuestionApproved = "Soru onaylandı.";
-
-
+        public string ExamStart = "Sınavınız başladı başarılar.";
     }
 }

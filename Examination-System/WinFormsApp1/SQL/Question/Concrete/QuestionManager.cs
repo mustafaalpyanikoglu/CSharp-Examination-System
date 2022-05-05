@@ -70,6 +70,7 @@ namespace WinFormsApp1
                 question.OptionD = reader["OptionD"].ToString();
                 question.RightOption = (int)reader["RightOption"];
                 question.QuestionTxt = reader["QuestionTxt"].ToString();
+                question.QuestionImage = (Byte[])reader["QuestionImage"];
                 questionList.Add(question);
             }
             if (questionList.Count == 0) //listede eleman varlığının kontrolü yapılıyor
@@ -164,7 +165,7 @@ namespace WinFormsApp1
         {
             //QuestionStatus==0 ise soru onaylı değil || QuestionStatus==1 ise soru onaylı anlamına gelir
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            _sqlCommand = new SqlCommand($"UPDATE Questions,QuestionStatus SET QuestionStatus=1 WHERE QuestionID={questionId} ", sqlConnection); //seçtiğimiz soru id'sine göre sorunun durumunu onaylı yapıyoruz yani değerini 1 yapıyoruz
+            _sqlCommand = new SqlCommand($"UPDATE Questions SET QuestionStatus=1 WHERE QuestionID={questionId} ", sqlConnection); //seçtiğimiz soru id'sine göre sorunun durumunu onaylı yapıyoruz yani değerini 1 yapıyoruz
             _sqlCommand.ExecuteNonQuery();
             BaseResult<Question> dataResult = GetQuestionById(questionId); //Seçtiğmiz sorunun bütün bilgilerini çekiyoruz.
             if (dataResult.data.QuestionStatus==1) //Seçtiğimiz sorunun onaylı olduğundan emin oluyoruz.
@@ -176,7 +177,5 @@ namespace WinFormsApp1
                 return new ErrorResult<Question>(data: dataResult.data, error: _errorConstants.QuestionNotUpdate);
             }
         }
-
-
     }
 }

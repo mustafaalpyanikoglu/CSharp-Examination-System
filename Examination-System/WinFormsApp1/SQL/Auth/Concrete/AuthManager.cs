@@ -13,6 +13,9 @@ namespace WinFormsApp1
         private SqlCommand _command;
         private User _user;
         private bool _result;
+        private SuccessConstant _successConstant = new SuccessConstant();
+        private ErrorConstant _errorConstants = new ErrorConstant();
+
         public BaseResult<User> ForgotPassword(User kisi,UserType userType)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
@@ -52,13 +55,11 @@ namespace WinFormsApp1
             _command.Dispose();
             if (_result)
             {
-                SuccessConstant successConstant = new SuccessConstant();
-                return new SuccessResult<User>(data: _user, success: successConstant.UserFound);
+                return new SuccessResult<User>(data: _user, success: _successConstant.UserFound);
             }
             else
             {
-                ErrorConstant errorConstants = new ErrorConstant();
-                return new ErrorResult<User>(data: _user, error: errorConstants.UserNotFound);
+                return new ErrorResult<User>(data: _user, error: _errorConstants.UserNotFound);
             }
 
         }
@@ -103,13 +104,11 @@ namespace WinFormsApp1
             _command.Dispose();
             if(_result)
             {
-                SuccessConstant successConstant = new SuccessConstant();
-                return new SuccessResult<User>(data:_user ,success:successConstant.UserFound);
+                return new SuccessResult<User>(data:_user ,success:_successConstant.UserFound);
             }
             else
             {
-                ErrorConstant errorConstants = new ErrorConstant();
-                return new ErrorResult<User>(data:_user,error:errorConstants.UserNotFound);
+                return new ErrorResult<User>(data:_user,error:_errorConstants.UserNotFound);
             }
         }
 

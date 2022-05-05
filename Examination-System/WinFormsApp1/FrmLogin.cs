@@ -89,7 +89,9 @@ namespace WinFormsApp1
             }
             else
             {
-                //öğrenci için navigate
+                FrmMusteriMenu frmMusteriMenu = new FrmMusteriMenu();
+                frmMusteriMenu.Show();
+                this.Hide();
             }
         }
 
@@ -100,6 +102,13 @@ namespace WinFormsApp1
             frmForgotPassword.Show();
             this.Hide();
 
+        }
+
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+            FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
+            frmIlkSayfa.Show();
+            this.Hide();
         }
     }
 }
