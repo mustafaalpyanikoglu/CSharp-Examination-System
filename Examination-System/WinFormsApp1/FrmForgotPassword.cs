@@ -61,6 +61,9 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Şifreniz: "+result.data.Password);
             }
+            FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
+            frmIlkSayfa.Show();
+            this.Hide();
         }
     }
 }

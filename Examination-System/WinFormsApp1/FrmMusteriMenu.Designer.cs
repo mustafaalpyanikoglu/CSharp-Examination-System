@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsApp1
 {
-    partial class FrmAdminMenu
+    partial class FrmMusteriMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,13 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMusteriMenu));
             this.label3 = new System.Windows.Forms.Label();
             this.SınavHazırlaBoxBTN = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.SoruOnaylaBoxBTN = new System.Windows.Forms.PictureBox();
+            this.SinavaGirBoxBTN = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.SınavHazırlaBoxBTN)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SoruOnaylaBoxBTN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SinavaGirBoxBTN)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -43,48 +43,47 @@ namespace WinFormsApp1
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(151, 461);
+            this.label3.Location = new System.Drawing.Point(146, 470);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 23);
-            this.label3.TabIndex = 11;
+            this.label3.TabIndex = 15;
             this.label3.Text = "Sınav Hazırla";
             // 
             // SınavHazırlaBoxBTN
             // 
             this.SınavHazırlaBoxBTN.Image = global::WinFormsApp1.Properties.Resources.admin2;
-            this.SınavHazırlaBoxBTN.Location = new System.Drawing.Point(135, 286);
+            this.SınavHazırlaBoxBTN.Location = new System.Drawing.Point(130, 295);
             this.SınavHazırlaBoxBTN.Name = "SınavHazırlaBoxBTN";
             this.SınavHazırlaBoxBTN.Size = new System.Drawing.Size(157, 163);
             this.SınavHazırlaBoxBTN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.SınavHazırlaBoxBTN.TabIndex = 10;
+            this.SınavHazırlaBoxBTN.TabIndex = 14;
             this.SınavHazırlaBoxBTN.TabStop = false;
-            this.SınavHazırlaBoxBTN.Click += new System.EventHandler(this.SınavHazırlaBoxBTN_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(158, 226);
+            this.label1.Location = new System.Drawing.Point(153, 235);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 23);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Soru Onayla";
+            this.label1.Size = new System.Drawing.Size(103, 23);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Sınava Gir";
             // 
-            // SoruOnaylaBoxBTN
+            // SinavaGirBoxBTN
             // 
-            this.SoruOnaylaBoxBTN.Image = ((System.Drawing.Image)(resources.GetObject("SoruOnaylaBoxBTN.Image")));
-            this.SoruOnaylaBoxBTN.Location = new System.Drawing.Point(135, 51);
-            this.SoruOnaylaBoxBTN.Name = "SoruOnaylaBoxBTN";
-            this.SoruOnaylaBoxBTN.Size = new System.Drawing.Size(157, 163);
-            this.SoruOnaylaBoxBTN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.SoruOnaylaBoxBTN.TabIndex = 7;
-            this.SoruOnaylaBoxBTN.TabStop = false;
-            this.SoruOnaylaBoxBTN.Click += new System.EventHandler(this.SoruOnaylaBoxBTN_Click);
+            this.SinavaGirBoxBTN.Image = ((System.Drawing.Image)(resources.GetObject("SinavaGirBoxBTN.Image")));
+            this.SinavaGirBoxBTN.Location = new System.Drawing.Point(130, 60);
+            this.SinavaGirBoxBTN.Name = "SinavaGirBoxBTN";
+            this.SinavaGirBoxBTN.Size = new System.Drawing.Size(157, 163);
+            this.SinavaGirBoxBTN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SinavaGirBoxBTN.TabIndex = 12;
+            this.SinavaGirBoxBTN.TabStop = false;
+            this.SinavaGirBoxBTN.Click += new System.EventHandler(this.SinavaGirBoxBTN_Click);
             // 
-            // FrmAdminMenu
+            // FrmMusteriMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -93,15 +92,15 @@ namespace WinFormsApp1
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SınavHazırlaBoxBTN);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.SoruOnaylaBoxBTN);
+            this.Controls.Add(this.SinavaGirBoxBTN);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "FrmAdminMenu";
+            this.Name = "FrmMusteriMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmPrepareExam";
+            this.Text = "FrmMusteriMenu";
             ((System.ComponentModel.ISupportInitialize)(this.SınavHazırlaBoxBTN)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SoruOnaylaBoxBTN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SinavaGirBoxBTN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +111,6 @@ namespace WinFormsApp1
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox SınavHazırlaBoxBTN;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox SoruOnaylaBoxBTN;
+        private System.Windows.Forms.PictureBox SinavaGirBoxBTN;
     }
 }

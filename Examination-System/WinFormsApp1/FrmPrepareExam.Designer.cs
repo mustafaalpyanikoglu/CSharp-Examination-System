@@ -104,7 +104,6 @@ namespace WinFormsApp1
             this.sinaviOlusturBTN.TabStop = false;
             this.sinaviOlusturBTN.Text = "Sınavı Oluştur";
             this.sinaviOlusturBTN.UseVisualStyleBackColor = false;
-            this.sinaviOlusturBTN.Click += new System.EventHandler(this.sinaviOlusturBTN_Click);
             // 
             // FrmPrepareExam
             // 

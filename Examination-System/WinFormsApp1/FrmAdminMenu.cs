@@ -30,5 +30,9 @@ namespace WinFormsApp1
             frmPrepareExam.Show();
             this.Hide();
         }
+
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

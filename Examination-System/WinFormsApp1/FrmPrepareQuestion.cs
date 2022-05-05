@@ -15,6 +15,8 @@ namespace WinFormsApp1
     public partial class KodNoLbl : Form
     {
         private IQuestionService _questionManager = new QuestionManager();
+        private SuccessConstant _successConstant = new SuccessConstant();
+        private ErrorConstant _errorConstant = new ErrorConstant();
         
         public KodNoLbl()
         {
@@ -68,7 +70,7 @@ namespace WinFormsApp1
             BaseResult<Question> result=_questionManager.AddQuestionData(question);
             if(result.isSuccess)
             {
-                MessageBox.Show("Soru başarıyla eklendi.");
+                MessageBox.Show(_successConstant.AddQuestion);
                 /*UnitNoTxt.Text = "";
                 SubjectNoTxt.Text = "";
                 UnitNameTxt.Text = "";
@@ -83,9 +85,10 @@ namespace WinFormsApp1
             }
             else
             {
-                MessageBox.Show("Yanlış bir veri girdiniz.");
+                MessageBox.Show(_errorConstant.Error);
             }
             
         }
+
     }
 }

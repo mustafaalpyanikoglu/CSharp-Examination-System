@@ -24,18 +24,6 @@ namespace WinFormsApp1
             this.Hide();
         }
 
-        private void sinaviOlusturBTN_Click(object sender, EventArgs e)
-        {
-            IQuestionService questionManager = new QuestionManager();
-            BaseResult<List<Question>> result=questionManager.RandomQuestion();
-            if(result.data.Count==0)
-            {
-                MessageBox.Show("Sorular bulunamadı");
-            }
-            else
-            {
-                MessageBox.Show("Sorular hazırlandı");
-            }
-        }
+        
     }
 }

@@ -55,16 +55,6 @@ namespace WinFormsApp1
             frmIlkSayfa.Show();
             this.Hide();
         }
-        public void verileriGoruntule()  //admin müşterileri görmesi için eklenecek
-        {
-            SqlManager sqlManager = new SqlManager();
-            DataSet daset = new DataSet();
-            sqlManager.sqlConnection();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select *From adminHesaplari", sqlManager.sqlConnection());
-            sqlDataAdapter.Fill(daset, "adminHesaplari");
-            dataGridView1.DataSource = daset.Tables["adminHesaplari"];
-            sqlManager.sqlConnection().Close();
-        }
 
         //Textbox'a tıkladığımızda üstündeki yazıyı silmemize yarar
         private void Clear(object sender, MouseEventArgs e)
@@ -85,6 +75,13 @@ namespace WinFormsApp1
         private void eMailTxt_MouseClick(object sender, MouseEventArgs e)
         {
             eMailTxt.Clear();
+        }
+
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+            FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
+            frmIlkSayfa.Show();
+            this.Hide();
         }
     }
 }
