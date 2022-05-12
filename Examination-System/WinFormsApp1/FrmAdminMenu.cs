@@ -24,15 +24,11 @@ namespace WinFormsApp1
             this.Hide();
         }
 
-        private void SınavHazırlaBoxBTN_Click(object sender, EventArgs e)
-        {
-            FrmPrepareExam frmPrepareExam = new FrmPrepareExam();
-            frmPrepareExam.Show();
-            this.Hide();
-        }
-
         private void closePictureBox_Click(object sender, EventArgs e)
         {
+            FrmChooseAccount frmIlkSayfa = new FrmChooseAccount();
+            frmIlkSayfa.Show();
+            this.Hide();
         }
     }
 }

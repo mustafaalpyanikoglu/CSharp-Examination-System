@@ -29,6 +29,7 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KodNoLbl));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.UniteNoLbl = new System.Windows.Forms.Label();
             this.KonuNoLbl = new System.Windows.Forms.Label();
@@ -55,7 +56,9 @@ namespace WinFormsApp1
             this.OptionCTxt = new System.Windows.Forms.TextBox();
             this.OptionDTxt = new System.Windows.Forms.TextBox();
             this.Insert = new System.Windows.Forms.Button();
+            this.closePictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -166,7 +169,7 @@ namespace WinFormsApp1
             this.Upload.Name = "Upload";
             this.Upload.Size = new System.Drawing.Size(116, 39);
             this.Upload.TabIndex = 40;
-            this.Upload.Text = "Upload";
+            this.Upload.Text = "Resim Seç";
             this.Upload.UseVisualStyleBackColor = true;
             this.Upload.Click += new System.EventHandler(this.Upload_Click);
             // 
@@ -317,13 +320,26 @@ namespace WinFormsApp1
             // 
             // Insert
             // 
-            this.Insert.Location = new System.Drawing.Point(350, 658);
+            this.Insert.Location = new System.Drawing.Point(350, 664);
             this.Insert.Name = "Insert";
             this.Insert.Size = new System.Drawing.Size(116, 39);
             this.Insert.TabIndex = 56;
-            this.Insert.Text = "Insert";
+            this.Insert.Text = "Ekle";
             this.Insert.UseVisualStyleBackColor = true;
             this.Insert.Click += new System.EventHandler(this.Insert_Click);
+            // 
+            // closePictureBox
+            // 
+            this.closePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
+            this.closePictureBox.Location = new System.Drawing.Point(764, 9);
+            this.closePictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.closePictureBox.Name = "closePictureBox";
+            this.closePictureBox.Size = new System.Drawing.Size(34, 32);
+            this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closePictureBox.TabIndex = 96;
+            this.closePictureBox.TabStop = false;
+            this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
             // 
             // KodNoLbl
             // 
@@ -331,6 +347,7 @@ namespace WinFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(807, 715);
+            this.Controls.Add(this.closePictureBox);
             this.Controls.Add(this.Insert);
             this.Controls.Add(this.OptionDTxt);
             this.Controls.Add(this.OptionCTxt);
@@ -364,6 +381,7 @@ namespace WinFormsApp1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSinavHazirlamaModülü";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,5 +414,6 @@ namespace WinFormsApp1
         private System.Windows.Forms.TextBox OptionCTxt;
         private System.Windows.Forms.TextBox OptionDTxt;
         private System.Windows.Forms.Button Insert;
+        private System.Windows.Forms.PictureBox closePictureBox;
     }
 }

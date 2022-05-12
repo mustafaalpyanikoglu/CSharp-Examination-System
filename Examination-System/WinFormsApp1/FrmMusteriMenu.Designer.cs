@@ -30,42 +30,17 @@ namespace WinFormsApp1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMusteriMenu));
-            this.label3 = new System.Windows.Forms.Label();
-            this.SınavHazırlaBoxBTN = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SinavaGirBoxBTN = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.SınavHazırlaBoxBTN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SinavaGirBoxBTN)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(146, 470);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 23);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Sınav Hazırla";
-            // 
-            // SınavHazırlaBoxBTN
-            // 
-            this.SınavHazırlaBoxBTN.Image = global::WinFormsApp1.Properties.Resources.admin2;
-            this.SınavHazırlaBoxBTN.Location = new System.Drawing.Point(130, 295);
-            this.SınavHazırlaBoxBTN.Name = "SınavHazırlaBoxBTN";
-            this.SınavHazırlaBoxBTN.Size = new System.Drawing.Size(157, 163);
-            this.SınavHazırlaBoxBTN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.SınavHazırlaBoxBTN.TabIndex = 14;
-            this.SınavHazırlaBoxBTN.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(153, 235);
+            this.label1.Location = new System.Drawing.Point(159, 332);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 23);
@@ -75,7 +50,7 @@ namespace WinFormsApp1
             // SinavaGirBoxBTN
             // 
             this.SinavaGirBoxBTN.Image = ((System.Drawing.Image)(resources.GetObject("SinavaGirBoxBTN.Image")));
-            this.SinavaGirBoxBTN.Location = new System.Drawing.Point(130, 60);
+            this.SinavaGirBoxBTN.Location = new System.Drawing.Point(136, 157);
             this.SinavaGirBoxBTN.Name = "SinavaGirBoxBTN";
             this.SinavaGirBoxBTN.Size = new System.Drawing.Size(157, 163);
             this.SinavaGirBoxBTN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -89,8 +64,6 @@ namespace WinFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(417, 552);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.SınavHazırlaBoxBTN);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SinavaGirBoxBTN);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -99,7 +72,6 @@ namespace WinFormsApp1
             this.Name = "FrmMusteriMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMusteriMenu";
-            ((System.ComponentModel.ISupportInitialize)(this.SınavHazırlaBoxBTN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SinavaGirBoxBTN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -107,9 +79,6 @@ namespace WinFormsApp1
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox SınavHazırlaBoxBTN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox SinavaGirBoxBTN;
     }

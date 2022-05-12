@@ -17,6 +17,7 @@ namespace WinFormsApp1
         private IQuestionService _questionManager = new QuestionManager();
         private SqlManager _sqlManager = new SqlManager();
         private int _selectedQuestionID = 0;
+        private List<RadioButton> _optionList = new List<RadioButton>();
 
         public FrmQuestionConfirmation()
         {
@@ -76,6 +77,21 @@ namespace WinFormsApp1
             }
         }
 
+        public void TickCorrectOption(int rightOption) //Doğru seçeneği bulup işaretliyor.
+        {
+            int i = 0;
+            _optionList.ForEach(o => {
+                o.Checked = rightOption == i + 1 ? true : false;
+                if (o.Checked)
+                {
+                    o.BackColor = Color.Green;
+                }
+                o.BackColor = o.Checked ? Color.Green : Color.Red;
+                i++;
+            });
+        }
+
+
         private void SetLoadedQuestion(Question question)
         {
             SubjectNoTxt.Text = question.SubjectNo.ToString();
@@ -90,24 +106,7 @@ namespace WinFormsApp1
             MemoryStream ms = new MemoryStream(question.QuestionImage);
             Image returnImage = Image.FromStream(ms);
             pictureBox.Image = returnImage;
-
-            int rightOption = question.RightOption;
-            if (rightOption == 1)
-            {
-                radioButtonA.Checked = true;
-            }
-            else if (rightOption == 2)
-            {
-                radioButtonB.Checked = true;
-            }
-            else if (rightOption == 3)
-            {
-                radioButtonC.Checked = true;
-            }
-            else
-            {
-                radioButtonD.Checked = true;
-            }
+            TickCorrectOption(question.RightOption);
         }
 
         public void ClearLoaded()
@@ -133,6 +132,10 @@ namespace WinFormsApp1
         private void FrmQuestionConfirmation_Load(object sender, EventArgs e)
         {
             FillDatagridview();
+            _optionList.Add(radioButtonA);
+            _optionList.Add(radioButtonB);
+            _optionList.Add(radioButtonC);
+            _optionList.Add(radioButtonD);
         }
 
 

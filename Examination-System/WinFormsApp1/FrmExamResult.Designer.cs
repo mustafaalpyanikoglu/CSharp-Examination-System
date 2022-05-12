@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsApp1
 {
-    partial class Exam
+    partial class FrmExamResult
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,15 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExamResult));
+            this.YanlisSayisiLbl = new System.Windows.Forms.Label();
+            this.DogruSayisiLbl = new System.Windows.Forms.Label();
+            this.closePictureBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.OptionDTxt = new System.Windows.Forms.TextBox();
             this.OptionCTxt = new System.Windows.Forms.TextBox();
             this.OptionBTxt = new System.Windows.Forms.TextBox();
@@ -45,14 +53,95 @@ namespace WinFormsApp1
             this.QuestionRichTxt = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.UniteNoLbl = new System.Windows.Forms.Label();
-            this.SoruDegisBTN = new System.Windows.Forms.Button();
-            this.Saniye = new System.Windows.Forms.Timer(this.components);
-            this.saniyeLbl = new System.Windows.Forms.Label();
-            this.dakikaLbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // YanlisSayisiLbl
+            // 
+            this.YanlisSayisiLbl.AutoSize = true;
+            this.YanlisSayisiLbl.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.YanlisSayisiLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.YanlisSayisiLbl.Location = new System.Drawing.Point(81, 98);
+            this.YanlisSayisiLbl.Name = "YanlisSayisiLbl";
+            this.YanlisSayisiLbl.Size = new System.Drawing.Size(206, 32);
+            this.YanlisSayisiLbl.TabIndex = 93;
+            this.YanlisSayisiLbl.Text = "Yanlış Sayısı: 0";
+            // 
+            // DogruSayisiLbl
+            // 
+            this.DogruSayisiLbl.AutoSize = true;
+            this.DogruSayisiLbl.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DogruSayisiLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.DogruSayisiLbl.Location = new System.Drawing.Point(80, 48);
+            this.DogruSayisiLbl.Name = "DogruSayisiLbl";
+            this.DogruSayisiLbl.Size = new System.Drawing.Size(207, 32);
+            this.DogruSayisiLbl.TabIndex = 92;
+            this.DogruSayisiLbl.Text = "Doğru Sayısı: 0";
+            // 
+            // closePictureBox
+            // 
+            this.closePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
+            this.closePictureBox.Location = new System.Drawing.Point(813, 9);
+            this.closePictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.closePictureBox.Name = "closePictureBox";
+            this.closePictureBox.Size = new System.Drawing.Size(30, 30);
+            this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closePictureBox.TabIndex = 94;
+            this.closePictureBox.TabStop = false;
+            this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(38, 95);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 95;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(37, 43);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 96;
+            this.pictureBox2.TabStop = false;
+            // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(48)))));
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listView1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(50, 153);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(223, 357);
+            this.listView1.TabIndex = 97;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Soru";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Doğru/Yanlış";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 150;
             // 
             // OptionDTxt
             // 
@@ -60,12 +149,12 @@ namespace WinFormsApp1
             this.OptionDTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OptionDTxt.Enabled = false;
             this.OptionDTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.OptionDTxt.Location = new System.Drawing.Point(113, 588);
+            this.OptionDTxt.Location = new System.Drawing.Point(395, 517);
             this.OptionDTxt.Margin = new System.Windows.Forms.Padding(4);
             this.OptionDTxt.Name = "OptionDTxt";
             this.OptionDTxt.ReadOnly = true;
             this.OptionDTxt.Size = new System.Drawing.Size(413, 23);
-            this.OptionDTxt.TabIndex = 80;
+            this.OptionDTxt.TabIndex = 112;
             this.OptionDTxt.TabStop = false;
             // 
             // OptionCTxt
@@ -74,12 +163,12 @@ namespace WinFormsApp1
             this.OptionCTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OptionCTxt.Enabled = false;
             this.OptionCTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.OptionCTxt.Location = new System.Drawing.Point(113, 546);
+            this.OptionCTxt.Location = new System.Drawing.Point(395, 475);
             this.OptionCTxt.Margin = new System.Windows.Forms.Padding(4);
             this.OptionCTxt.Name = "OptionCTxt";
             this.OptionCTxt.ReadOnly = true;
             this.OptionCTxt.Size = new System.Drawing.Size(413, 23);
-            this.OptionCTxt.TabIndex = 79;
+            this.OptionCTxt.TabIndex = 111;
             this.OptionCTxt.TabStop = false;
             // 
             // OptionBTxt
@@ -88,12 +177,12 @@ namespace WinFormsApp1
             this.OptionBTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OptionBTxt.Enabled = false;
             this.OptionBTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.OptionBTxt.Location = new System.Drawing.Point(113, 505);
+            this.OptionBTxt.Location = new System.Drawing.Point(395, 434);
             this.OptionBTxt.Margin = new System.Windows.Forms.Padding(4);
             this.OptionBTxt.Name = "OptionBTxt";
             this.OptionBTxt.ReadOnly = true;
             this.OptionBTxt.Size = new System.Drawing.Size(413, 23);
-            this.OptionBTxt.TabIndex = 78;
+            this.OptionBTxt.TabIndex = 110;
             this.OptionBTxt.TabStop = false;
             // 
             // OptionATxt
@@ -102,88 +191,96 @@ namespace WinFormsApp1
             this.OptionATxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OptionATxt.Enabled = false;
             this.OptionATxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.OptionATxt.Location = new System.Drawing.Point(113, 464);
+            this.OptionATxt.Location = new System.Drawing.Point(395, 393);
             this.OptionATxt.Margin = new System.Windows.Forms.Padding(4);
             this.OptionATxt.Name = "OptionATxt";
             this.OptionATxt.ReadOnly = true;
             this.OptionATxt.Size = new System.Drawing.Size(413, 23);
-            this.OptionATxt.TabIndex = 77;
+            this.OptionATxt.TabIndex = 109;
             this.OptionATxt.TabStop = false;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label11.Location = new System.Drawing.Point(52, 588);
+            this.label11.Location = new System.Drawing.Point(334, 517);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(31, 23);
-            this.label11.TabIndex = 76;
+            this.label11.TabIndex = 108;
             this.label11.Text = "D)";
             // 
             // radioButtonD
             // 
             this.radioButtonD.AutoSize = true;
-            this.radioButtonD.Location = new System.Drawing.Point(88, 591);
+            this.radioButtonD.Enabled = false;
+            this.radioButtonD.ForeColor = System.Drawing.Color.White;
+            this.radioButtonD.Location = new System.Drawing.Point(370, 520);
             this.radioButtonD.Name = "radioButtonD";
             this.radioButtonD.Size = new System.Drawing.Size(17, 16);
-            this.radioButtonD.TabIndex = 75;
+            this.radioButtonD.TabIndex = 107;
             this.radioButtonD.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label10.Location = new System.Drawing.Point(52, 546);
+            this.label10.Location = new System.Drawing.Point(334, 475);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 23);
-            this.label10.TabIndex = 74;
+            this.label10.TabIndex = 106;
             this.label10.Text = "C)";
             // 
             // radioButtonC
             // 
             this.radioButtonC.AutoSize = true;
-            this.radioButtonC.Location = new System.Drawing.Point(88, 549);
+            this.radioButtonC.Enabled = false;
+            this.radioButtonC.ForeColor = System.Drawing.Color.White;
+            this.radioButtonC.Location = new System.Drawing.Point(370, 478);
             this.radioButtonC.Name = "radioButtonC";
             this.radioButtonC.Size = new System.Drawing.Size(17, 16);
-            this.radioButtonC.TabIndex = 73;
+            this.radioButtonC.TabIndex = 105;
             this.radioButtonC.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label9.Location = new System.Drawing.Point(52, 505);
+            this.label9.Location = new System.Drawing.Point(334, 434);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(30, 23);
-            this.label9.TabIndex = 72;
+            this.label9.TabIndex = 104;
             this.label9.Text = "B)";
             // 
             // radioButtonB
             // 
             this.radioButtonB.AutoSize = true;
-            this.radioButtonB.Location = new System.Drawing.Point(88, 508);
+            this.radioButtonB.Enabled = false;
+            this.radioButtonB.ForeColor = System.Drawing.Color.White;
+            this.radioButtonB.Location = new System.Drawing.Point(370, 437);
             this.radioButtonB.Name = "radioButtonB";
             this.radioButtonB.Size = new System.Drawing.Size(17, 16);
-            this.radioButtonB.TabIndex = 71;
+            this.radioButtonB.TabIndex = 103;
             this.radioButtonB.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label8.Location = new System.Drawing.Point(52, 464);
+            this.label8.Location = new System.Drawing.Point(334, 393);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 23);
-            this.label8.TabIndex = 70;
+            this.label8.TabIndex = 102;
             this.label8.Text = "A)";
             // 
             // radioButtonA
             // 
             this.radioButtonA.AutoSize = true;
-            this.radioButtonA.Location = new System.Drawing.Point(88, 467);
+            this.radioButtonA.Enabled = false;
+            this.radioButtonA.ForeColor = System.Drawing.Color.White;
+            this.radioButtonA.Location = new System.Drawing.Point(370, 396);
             this.radioButtonA.Name = "radioButtonA";
             this.radioButtonA.Size = new System.Drawing.Size(17, 16);
-            this.radioButtonA.TabIndex = 69;
+            this.radioButtonA.TabIndex = 101;
             this.radioButtonA.UseVisualStyleBackColor = true;
             // 
             // QuestionRichTxt
@@ -192,95 +289,39 @@ namespace WinFormsApp1
             this.QuestionRichTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.QuestionRichTxt.Enabled = false;
             this.QuestionRichTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.QuestionRichTxt.Location = new System.Drawing.Point(128, 347);
+            this.QuestionRichTxt.Location = new System.Drawing.Point(410, 276);
             this.QuestionRichTxt.Name = "QuestionRichTxt";
             this.QuestionRichTxt.ReadOnly = true;
             this.QuestionRichTxt.Size = new System.Drawing.Size(374, 78);
-            this.QuestionRichTxt.TabIndex = 68;
+            this.QuestionRichTxt.TabIndex = 100;
             this.QuestionRichTxt.Text = "";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label7.Location = new System.Drawing.Point(65, 375);
+            this.label7.Location = new System.Drawing.Point(347, 304);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 23);
-            this.label7.TabIndex = 67;
+            this.label7.TabIndex = 99;
             this.label7.Text = "Soru:";
             // 
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
-            this.pictureBox.Location = new System.Drawing.Point(128, 83);
+            this.pictureBox.Location = new System.Drawing.Point(410, 12);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(374, 235);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 65;
+            this.pictureBox.TabIndex = 98;
             this.pictureBox.TabStop = false;
             // 
-            // UniteNoLbl
-            // 
-            this.UniteNoLbl.AutoSize = true;
-            this.UniteNoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.UniteNoLbl.Location = new System.Drawing.Point(24, 29);
-            this.UniteNoLbl.Name = "UniteNoLbl";
-            this.UniteNoLbl.Size = new System.Drawing.Size(58, 23);
-            this.UniteNoLbl.TabIndex = 57;
-            this.UniteNoLbl.Text = "Süre:";
-            // 
-            // SoruDegisBTN
-            // 
-            this.SoruDegisBTN.Location = new System.Drawing.Point(212, 646);
-            this.SoruDegisBTN.Name = "SoruDegisBTN";
-            this.SoruDegisBTN.Size = new System.Drawing.Size(171, 39);
-            this.SoruDegisBTN.TabIndex = 81;
-            this.SoruDegisBTN.Text = "Sonraki Soru";
-            this.SoruDegisBTN.UseVisualStyleBackColor = true;
-            this.SoruDegisBTN.Click += new System.EventHandler(this.SoruDegisBTN_Click);
-            // 
-            // Saniye
-            // 
-            this.Saniye.Tick += new System.EventHandler(this.Saniye_Tick);
-            // 
-            // saniyeLbl
-            // 
-            this.saniyeLbl.AutoSize = true;
-            this.saniyeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.saniyeLbl.Location = new System.Drawing.Point(126, 29);
-            this.saniyeLbl.Name = "saniyeLbl";
-            this.saniyeLbl.Size = new System.Drawing.Size(0, 23);
-            this.saniyeLbl.TabIndex = 82;
-            // 
-            // dakikaLbl
-            // 
-            this.dakikaLbl.AutoSize = true;
-            this.dakikaLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.dakikaLbl.Location = new System.Drawing.Point(88, 29);
-            this.dakikaLbl.Name = "dakikaLbl";
-            this.dakikaLbl.Size = new System.Drawing.Size(0, 23);
-            this.dakikaLbl.TabIndex = 83;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label2.Location = new System.Drawing.Point(113, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 23);
-            this.label2.TabIndex = 84;
-            this.label2.Text = ":";
-            // 
-            // Exam
+            // FrmExamResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(589, 715);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dakikaLbl);
-            this.Controls.Add(this.saniyeLbl);
-            this.Controls.Add(this.SoruDegisBTN);
+            this.ClientSize = new System.Drawing.Size(852, 566);
             this.Controls.Add(this.OptionDTxt);
             this.Controls.Add(this.OptionCTxt);
             this.Controls.Add(this.OptionBTxt);
@@ -296,14 +337,22 @@ namespace WinFormsApp1
             this.Controls.Add(this.QuestionRichTxt);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.UniteNoLbl);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.closePictureBox);
+            this.Controls.Add(this.YanlisSayisiLbl);
+            this.Controls.Add(this.DogruSayisiLbl);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Exam";
+            this.Name = "FrmExamResult";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Exam";
-            this.Load += new System.EventHandler(this.Exam_Load);
+            this.Text = "FrmExamResult";
+            this.Load += new System.EventHandler(this.FrmExamResult_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,6 +360,14 @@ namespace WinFormsApp1
         }
 
         #endregion
+        private System.Windows.Forms.Label YanlisSayisiLbl;
+        private System.Windows.Forms.Label DogruSayisiLbl;
+        private System.Windows.Forms.PictureBox closePictureBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.TextBox OptionDTxt;
         private System.Windows.Forms.TextBox OptionCTxt;
         private System.Windows.Forms.TextBox OptionBTxt;
@@ -326,11 +383,5 @@ namespace WinFormsApp1
         private System.Windows.Forms.RichTextBox QuestionRichTxt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Label UniteNoLbl;
-        private System.Windows.Forms.Button SoruDegisBTN;
-        private System.Windows.Forms.Timer Saniye;
-        private System.Windows.Forms.Label saniyeLbl;
-        private System.Windows.Forms.Label dakikaLbl;
-        private System.Windows.Forms.Label label2;
     }
 }

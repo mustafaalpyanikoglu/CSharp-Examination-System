@@ -34,7 +34,8 @@ namespace WinFormsApp1
 
         private void sifreHatirlaBTN_Click(object sender, EventArgs e)
         {
-            if (this._userType == UserType.ADMIN)
+            //Kişi giriş yaparken seçtiği profil ile bizde bulunan enum yapısına göre hesap bilgilerini çekiyoruz.
+            if (this._userType == UserType.ADMIN) 
             {
                 _user = new AdminAccount();
                 _user.UserName = kullaniciAdiTxt.Text;
@@ -61,7 +62,7 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Şifreniz: "+result.data.Password);
             }
-            FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
+            FrmChooseAccount frmIlkSayfa = new FrmChooseAccount();
             frmIlkSayfa.Show();
             this.Hide();
         }

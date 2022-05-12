@@ -23,7 +23,7 @@ namespace WinFormsApp1
 
         private void kayitOlBTN_Click(object sender, EventArgs e)
         {
-            FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
+            FrmChooseAccount frmIlkSayfa = new FrmChooseAccount();
 
             if (this.userType == UserType.ADMIN)
             {
@@ -79,7 +79,7 @@ namespace WinFormsApp1
 
         private void closePictureBox_Click(object sender, EventArgs e)
         {
-            FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
+            FrmChooseAccount frmIlkSayfa = new FrmChooseAccount();
             frmIlkSayfa.Show();
             this.Hide();
         }
