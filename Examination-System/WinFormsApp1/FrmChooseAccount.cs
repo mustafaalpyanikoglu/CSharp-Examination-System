@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class FrmIlkSayfa : Form
+    public partial class FrmChooseAccount : Form
     {
         public bool isAdminMusteri;
-        public FrmIlkSayfa()
+        public FrmChooseAccount()
         {
             InitializeComponent();
         }

@@ -33,9 +33,8 @@ namespace WinFormsApp1
             }
         }
 
-        private void Insert_Click(object sender, EventArgs e)
+        public void AddQuestion() //Girilen soru bilgilerini SQL'e ekliyoruz
         {
-            //Girilen soru bilgilerini SQL'e ekliyoruz
             Question question = new Question();
             question.UnitNo = Convert.ToInt32(UnitNoTxt.Text);
             question.SubjectNo = Convert.ToInt32(SubjectNoTxt.Text);
@@ -46,11 +45,11 @@ namespace WinFormsApp1
             question.OptionC = OptionCTxt.Text;
             question.OptionD = OptionDTxt.Text;
             question.QuestionTxt = QuestionRichTxt.Text;
-            
+
             MemoryStream memoryStream = new MemoryStream(); //image array şeklinde tutuyoruz
             pictureBox.Image.Save(memoryStream, pictureBox.Image.RawFormat);
             question.QuestionImage = memoryStream.ToArray();
-            
+
             if (radioButtonA.Checked)
             {
                 question.RightOption = 1;
@@ -67,28 +66,33 @@ namespace WinFormsApp1
             {
                 question.RightOption = 4;
             }
-            BaseResult<Question> result=_questionManager.AddQuestionData(question);
-            if(result.isSuccess)
+            BaseResult<Question> result = _questionManager.AddQuestionData(question);
+            if (result.isSuccess)
             {
                 MessageBox.Show(_successConstant.AddQuestion);
-                /*UnitNoTxt.Text = "";
-                SubjectNoTxt.Text = "";
-                UnitNameTxt.Text = "";
-                SubjectNameTxt.Text = "";*/
                 OptionATxt.Text = "";
                 OptionBTxt.Text = "";
                 OptionCTxt.Text = "";
                 OptionDTxt.Text = "";
                 QuestionRichTxt.Text = "";
                 pictureBox.Image = null;
-
             }
             else
             {
                 MessageBox.Show(_errorConstant.Error);
             }
-            
         }
 
+        private void Insert_Click(object sender, EventArgs e)
+        {
+            AddQuestion();
+        }
+
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+            FrmChooseAccount frmIlkSayfa = new FrmChooseAccount();
+            frmIlkSayfa.Show();
+            this.Hide();
+        }
     }
 }

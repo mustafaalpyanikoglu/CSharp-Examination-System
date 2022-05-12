@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsApp1
 {
-    partial class FrmIlkSayfa
+    partial class FrmChooseAccount
     {
         /// <summary>
         ///  Required designer variable.

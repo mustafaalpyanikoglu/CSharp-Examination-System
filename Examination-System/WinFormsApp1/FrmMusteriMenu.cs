@@ -22,19 +22,18 @@ namespace WinFormsApp1
         private void SinavaGirBoxBTN_Click(object sender, EventArgs e)
         {
             IQuestionService questionManager = new QuestionManager();
-            BaseResult<List<Question>> result = questionManager.RandomQuestion();
-            if (result.data.Count == 0)
+            BaseResult<List<Question>> result = questionManager.RandomQuestion(); //Veri tabanından random 10 adet soru çekiyoruz
+            if (result.data.Count == 0) //Soru çekilemediyse hata verir
             {
                 MessageBox.Show(_errorConstan.QuestionNotFound);
             }
             else
             {
                 MessageBox.Show(_successConstant.ExamStart);
+                FrmExam exam = new FrmExam(result.data);
+                exam.Show();
+                this.Hide();
             }
-
-            Exam exam = new Exam(result.data);
-            exam.Show();
-            this.Hide();
         }
     }
 }

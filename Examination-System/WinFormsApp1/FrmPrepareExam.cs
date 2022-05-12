@@ -23,7 +23,5 @@ namespace WinFormsApp1
             frmAdminMenu.Show();
             this.Hide();
         }
-
-        
     }
 }

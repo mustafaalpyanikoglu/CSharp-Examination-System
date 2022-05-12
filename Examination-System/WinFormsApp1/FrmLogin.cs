@@ -75,6 +75,7 @@ namespace WinFormsApp1
 
         public void NavigateToHomeControl(UserType userType)
         {
+            //Girilen hesap bilgilerine göre hesabın erişebileceği sayfalar açılıyor.
             if(userType==UserType.ADMIN)
             {
                 FrmAdminMenu frmAdminMenu = new FrmAdminMenu();
@@ -106,7 +107,7 @@ namespace WinFormsApp1
 
         private void closePictureBox_Click(object sender, EventArgs e)
         {
-            FrmIlkSayfa frmIlkSayfa = new FrmIlkSayfa();
+            FrmChooseAccount frmIlkSayfa = new FrmChooseAccount();
             frmIlkSayfa.Show();
             this.Hide();
         }
