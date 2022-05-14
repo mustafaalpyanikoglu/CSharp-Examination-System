@@ -22,18 +22,18 @@ namespace WinFormsApp1
             if (userType== UserType.ADMIN)
             {
                 _user = new AdminAccount();
-                _command = new SqlCommand("Select * From adminHesaplari where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
+                _command = new SqlCommand("Select * From Admins where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
 
             }
             else if(userType==UserType.EXAMINER)
             {
                 _user = new ExaminerAccount();
-                _command = new SqlCommand("Select * From ExaminerAccounts where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
+                _command = new SqlCommand("Select * From Examiners where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
             }
             else
             {
                 _user = new MusteriAccount();
-                _command = new SqlCommand("Select * From musteriHesaplari where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
+                _command = new SqlCommand("Select * From Students where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
             }
             _command.Connection = sqlConnection;
 
@@ -70,17 +70,17 @@ namespace WinFormsApp1
             if (userType == UserType.ADMIN) //Admin musteri girisine göre değerlendirme yapılacak
             {
                 _user = new AdminAccount();
-                _command = new SqlCommand("Select * From adminHesaplari where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+                _command = new SqlCommand("Select * From Admins where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
             }
             else if (userType == UserType.EXAMINER) //Admin musteri girisine göre değerlendirme yapılacak
             {
                 _user = new AdminAccount();
-                _command = new SqlCommand("Select * From ExaminerAccounts where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+                _command = new SqlCommand("Select * From Examiners where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
             }
             else
             {
                 _user = new MusteriAccount();
-                _command = new SqlCommand("Select * From musteriHesaplari where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
+                _command = new SqlCommand("Select * From Students where kullaniciadi='" + kisi.UserName + "' and sifre='" + kisi.Password + "'", connection);
             }
 
             _command.Connection = connection;
@@ -93,7 +93,6 @@ namespace WinFormsApp1
                 while (sqlDataReader.Read()) //veritabanındaki bilgileri okuyoruz
                 {
                     _user.NameSurname = sqlDataReader["adsoyad"].ToString();
-
                 }
             }
             else

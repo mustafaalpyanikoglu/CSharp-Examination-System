@@ -19,7 +19,7 @@
     <Compile Update="FrmAdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmMusteriMenu.cs">
+    <Compile Update="FrmStudentMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmPrepareExam.cs">

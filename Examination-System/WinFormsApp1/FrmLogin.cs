@@ -90,7 +90,7 @@ namespace WinFormsApp1
             }
             else
             {
-                FrmMusteriMenu frmMusteriMenu = new FrmMusteriMenu();
+                FrmStudentMenu frmMusteriMenu = new FrmStudentMenu();
                 frmMusteriMenu.Show();
                 this.Hide();
             }

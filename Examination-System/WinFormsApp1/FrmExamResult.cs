@@ -29,7 +29,7 @@ namespace WinFormsApp1
 
         private void closePictureBox_Click(object sender, EventArgs e)
         {
-            FrmMusteriMenu frmMusteriMenu = new FrmMusteriMenu();
+            FrmStudentMenu frmMusteriMenu = new FrmStudentMenu();
             frmMusteriMenu.Show();
             this.Hide();
         }

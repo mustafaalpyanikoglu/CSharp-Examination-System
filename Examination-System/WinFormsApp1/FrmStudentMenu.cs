@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class FrmMusteriMenu : Form
+    public partial class FrmStudentMenu : Form
     {
         private SuccessConstant _successConstant = new SuccessConstant();
         private ErrorConstant _errorConstan = new ErrorConstant();
-        public FrmMusteriMenu()
+        public FrmStudentMenu()
         {
             InitializeComponent();
         }
@@ -34,6 +34,13 @@ namespace WinFormsApp1
                 exam.Show();
                 this.Hide();
             }
+        }
+
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+            FrmChooseAccount frmChooseAccount = new FrmChooseAccount();
+            frmChooseAccount.Show();
+            this.Hide();
         }
     }
 }
