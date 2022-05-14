@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WinFormsApp1.User">
+    <Position X="3.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAgAAAAAAAQAAAAAAACAQAAAwEAAAE=</HashCode>
+      <FileName>Models\Abstract\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormsApp1.AdminAccount">
+    <Position X="3.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Concrete\AdminAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormsApp1.ExaminerAccount">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Concrete\ExaminerAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormsApp1.MusteriAccount">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Concrete\MusteriAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormsApp1.Question">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgHAAAAAAAACAAAgEgAAIhIAEJICA9CQAAIA=</HashCode>
+      <FileName>Models\Concrete\Question.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormsApp1.AuthManager">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAKAAAAAAAAAAAhRIAAAAAQABAAAAA=</HashCode>
+      <FileName>SQL\Auth\Concrete\AuthManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IAuthService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WinFormsApp1.QuestionManager">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAQAEAIAAAQAAAAAAACRBAAAAAAAAQAAAA=</HashCode>
+      <FileName>SQL\Question\Concrete\QuestionManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IQuestionService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WinFormsApp1.BaseResult&lt;T&gt;">
+    <Position X="12" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQ=</HashCode>
+      <FileName>Utils\Result\Abstract\BaseResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormsApp1.ErrorResult&lt;T&gt;">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\Result\Concrete\ErrorResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormsApp1.SuccessResult&lt;T&gt;">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\Result\Concrete\SuccessResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormsApp1.SqlManager">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAIAAAA=</HashCode>
+      <FileName>SQL\SQL Connection\Concrete\SqlManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ISqlService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WinFormsApp1.ErrorConstant">
+    <Position X="11" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAQAAAABAAAAAAAAAAAAAAAAAAAAAKEA=</HashCode>
+      <FileName>Utils\Constants\ErrorConstant\ErrorConstant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormsApp1.SuccessConstant">
+    <Position X="13" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AoAAAAABAAAABAgAAAACAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Utils\Constants\SuccessConstant\SuccessConstant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="WinFormsApp1.IAuthService">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>SQL\Auth\Abstract\IAuthService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WinFormsApp1.IQuestionService">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAQAEAAAAAQAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>SQL\Question\Abstract\IQuestionService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WinFormsApp1.ISqlService">
+    <Position X="5.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQL\SQL Connection\Abstact\ISqlService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="WinFormsApp1.UserType">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\Enums\UserType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

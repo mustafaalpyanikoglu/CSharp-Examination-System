@@ -41,7 +41,8 @@ namespace WinFormsApp1
 
         private void girisBTN_Click(object sender, EventArgs e)
         {
-            IAuthService authService = new AuthManager();
+            //IAuthService authService = new AuthManager();
+            IAuthService authService;
             User _user;
             if(this._userType==UserType.ADMIN)
             {
@@ -61,7 +62,8 @@ namespace WinFormsApp1
                 _user.UserName = kullaniciAdiTxt.Text;
                 _user.Password = sifreTxt.Text;
             }
-            BaseResult<User> result= authService.Login(_user, this._userType);
+            AuthManager authManager = new AuthManager();
+            BaseResult<User> result= authManager.Login(_user, this._userType);
             if(!result.isSuccess)
             {
                 MessageBox.Show("Hatalı");

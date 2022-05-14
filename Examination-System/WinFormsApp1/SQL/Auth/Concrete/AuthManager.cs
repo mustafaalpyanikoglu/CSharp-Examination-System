@@ -16,16 +16,24 @@ namespace WinFormsApp1
         private SuccessConstant _successConstant = new SuccessConstant();
         private ErrorConstant _errorConstants = new ErrorConstant();
 
-        public BaseResult<User> ForgotPassword(User kisi,UserType userType)
+        internal IAuthService IAuthService
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public BaseResult<User> ForgotPassword(User kisi, UserType userType)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            if (userType== UserType.ADMIN)
+            if (userType == UserType.ADMIN)
             {
                 _user = new AdminAccount();
                 _command = new SqlCommand("Select * From Admins where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
 
             }
-            else if(userType==UserType.EXAMINER)
+            else if (userType == UserType.EXAMINER)
             {
                 _user = new ExaminerAccount();
                 _command = new SqlCommand("Select * From Examiners where kullaniciadi='" + kisi.UserName + "' and email='" + kisi.Mail + "'", sqlConnection);
@@ -84,10 +92,10 @@ namespace WinFormsApp1
             }
 
             _command.Connection = connection;
-                
+
             SqlDataReader sqlDataReader = _command.ExecuteReader();
-            
-            if(sqlDataReader.HasRows)
+
+            if (sqlDataReader.HasRows)
             {
                 _result = true;
                 while (sqlDataReader.Read()) //veritabanındaki bilgileri okuyoruz
@@ -101,13 +109,13 @@ namespace WinFormsApp1
             }
             _sqlManager.sqlConnection().Close();
             _command.Dispose();
-            if(_result)
+            if (_result)
             {
-                return new SuccessResult<User>(data:_user ,success:_successConstant.UserFound);
+                return new SuccessResult<User>(data: _user, success: _successConstant.UserFound);
             }
             else
             {
-                return new ErrorResult<User>(data:_user,error:_errorConstants.UserNotFound);
+                return new ErrorResult<User>(data: _user, error: _errorConstants.UserNotFound);
             }
         }
 

@@ -10,19 +10,27 @@ using System.Data;
 
 namespace WinFormsApp1
 {
-    class QuestionManager:IQuestionService
+    class QuestionManager: IQuestionService
     {
         //Neredeyse hepsini bütün işlemlerde kullandığımız için burda tanımladık.
         private SqlManager _sqlManager = new SqlManager();
         private SqlCommand _sqlCommand; //Sql komutlarını kullanıyoruz.
         private ErrorConstant _errorConstants = new ErrorConstant(); //Hatalı ifadeleri kullanıyoruz.
         private SuccessConstant _successConstant = new SuccessConstant(); //Başarılı ifadeleri kullanıyoruz.
-        
+
+        internal IQuestionService IQuestionService
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public BaseResult<Question> AddQuestionData(Question question)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection(); //Sql'i bağlıyoruz.
 
-            if (question.UnitNo==0) //UnitNo girilmezse soru eklenemez hata verir
+            if (question.UnitNo == 0) //UnitNo girilmezse soru eklenemez hata verir
             {
                 return new ErrorResult<Question>(data: question, error: _errorConstants.DataNotAdded);
             }
@@ -43,14 +51,14 @@ namespace WinFormsApp1
                 _sqlCommand.Parameters.AddWithValue("QuestionImage", question.QuestionImage);
                 _sqlCommand.Parameters.AddWithValue("@RightOption", question.RightOption);
                 _sqlCommand.ExecuteNonQuery();
-                return new SuccessResult<Question>(data: question,success:_successConstant.AddQuestion);
+                return new SuccessResult<Question>(data: question, success: _successConstant.AddQuestion);
             }
         }
 
         public BaseResult<List<Question>> RandomQuestion()
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
-            
+
             _sqlCommand = new SqlCommand("select top 10* from Questions order by newid()", sqlConnection); //veritabanından random 10 adet veri seçiyoruz
 
             List<Question> questionList = new List<Question>(); //Çektiğimiz verileri bu listeye kaydedeceğiz.
@@ -108,13 +116,13 @@ namespace WinFormsApp1
                 question.QuestionTxt = reader["QuestionTxt"].ToString();
                 questionList.Add(question);
             }
-            if(questionList.Count==0) //listede eleman varlığının kontrolü
+            if (questionList.Count == 0) //listede eleman varlığının kontrolü
             {
                 return new ErrorResult<List<Question>>(data: questionList, error: _errorConstants.DataNotFound);
             }
             else
             {
-                return new SuccessResult<List<Question>>(data: questionList,success:_successConstant.AllQuestionFound);
+                return new SuccessResult<List<Question>>(data: questionList, success: _successConstant.AllQuestionFound);
             }
         }
 
@@ -141,13 +149,13 @@ namespace WinFormsApp1
                 question.QuestionStatus = (int)reader["QuestionStatus"];
                 question.QuestionTxt = reader["QuestionTxt"].ToString();
             }
-            if(question.QuestionTxt=="") //Okuduğumuz soruda eksik bilgi olmadığının kontrolünü yapıyoruz
+            if (question.QuestionTxt == "") //Okuduğumuz soruda eksik bilgi olmadığının kontrolünü yapıyoruz
             {
-                return new ErrorResult<Question>(data:question,error:_errorConstants.QuestionNotFound);
+                return new ErrorResult<Question>(data: question, error: _errorConstants.QuestionNotFound);
             }
             else
             {
-                return new SuccessResult<Question>(data: question,success:_successConstant.QuestionFound);
+                return new SuccessResult<Question>(data: question, success: _successConstant.QuestionFound);
             }
         }
 
@@ -168,9 +176,9 @@ namespace WinFormsApp1
             _sqlCommand = new SqlCommand($"UPDATE Questions SET QuestionStatus=1 WHERE QuestionID={questionId} ", sqlConnection); //seçtiğimiz soru id'sine göre sorunun durumunu onaylı yapıyoruz yani değerini 1 yapıyoruz
             _sqlCommand.ExecuteNonQuery();
             BaseResult<Question> dataResult = GetQuestionById(questionId); //Seçtiğmiz sorunun bütün bilgilerini çekiyoruz.
-            if (dataResult.data.QuestionStatus==1) //Seçtiğimiz sorunun onaylı olduğundan emin oluyoruz.
+            if (dataResult.data.QuestionStatus == 1) //Seçtiğimiz sorunun onaylı olduğundan emin oluyoruz.
             {
-                return new SuccessResult<Question>(data: dataResult.data,success: _successConstant.QuestionApproved);
+                return new SuccessResult<Question>(data: dataResult.data, success: _successConstant.QuestionApproved);
             }
             else
             {
