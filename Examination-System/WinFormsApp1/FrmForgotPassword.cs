@@ -15,6 +15,7 @@ namespace WinFormsApp1
     {
         private UserType _userType;
         private IAuthService _authService = new AuthManager();
+
         private User _user;
         public FrmForgotPassword(UserType userType)
         {

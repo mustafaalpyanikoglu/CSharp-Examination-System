@@ -22,16 +22,13 @@
     <Compile Update="FrmStudentMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmPrepareExam.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FrmQuestionConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmPrepareQuestion.cs">
+    <Compile Update="FrmCreateQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
