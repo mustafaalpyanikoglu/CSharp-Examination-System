@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsApp1
 {
-    partial class FrmMusteriMenu
+    partial class FrmStudentMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,12 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMusteriMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudentMenu));
             this.label1 = new System.Windows.Forms.Label();
             this.SinavaGirBoxBTN = new System.Windows.Forms.PictureBox();
+            this.closePictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.SinavaGirBoxBTN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,12 +60,26 @@ namespace WinFormsApp1
             this.SinavaGirBoxBTN.TabStop = false;
             this.SinavaGirBoxBTN.Click += new System.EventHandler(this.SinavaGirBoxBTN_Click);
             // 
+            // closePictureBox
+            // 
+            this.closePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
+            this.closePictureBox.Location = new System.Drawing.Point(378, 9);
+            this.closePictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.closePictureBox.Name = "closePictureBox";
+            this.closePictureBox.Size = new System.Drawing.Size(30, 30);
+            this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closePictureBox.TabIndex = 95;
+            this.closePictureBox.TabStop = false;
+            this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
+            // 
             // FrmMusteriMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(417, 552);
+            this.Controls.Add(this.closePictureBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SinavaGirBoxBTN);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -73,6 +89,7 @@ namespace WinFormsApp1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMusteriMenu";
             ((System.ComponentModel.ISupportInitialize)(this.SinavaGirBoxBTN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,5 +98,6 @@ namespace WinFormsApp1
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox SinavaGirBoxBTN;
+        private System.Windows.Forms.PictureBox closePictureBox;
     }
 }
