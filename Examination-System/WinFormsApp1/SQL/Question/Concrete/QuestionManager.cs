@@ -59,7 +59,7 @@ namespace WinFormsApp1
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
 
-            _sqlCommand = new SqlCommand("select top 10* from Questions order by newid()", sqlConnection); //veritabanından random 10 adet veri seçiyoruz
+            _sqlCommand = new SqlCommand("select top 10* from Questions where QuestionStatus=1 order by newid()", sqlConnection); //veritabanından random 10 adet veri seçiyoruz
 
             List<Question> questionList = new List<Question>(); //Çektiğimiz verileri bu listeye kaydedeceğiz.
             _sqlCommand.ExecuteNonQuery();

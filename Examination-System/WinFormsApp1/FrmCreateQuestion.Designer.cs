@@ -39,26 +39,30 @@ namespace WinFormsApp1
             this.UnitNameTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.Upload = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.QuestionRichTxt = new System.Windows.Forms.RichTextBox();
-            this.radioButtonA = new System.Windows.Forms.RadioButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.radioButtonB = new System.Windows.Forms.RadioButton();
-            this.label10 = new System.Windows.Forms.Label();
-            this.radioButtonC = new System.Windows.Forms.RadioButton();
-            this.label11 = new System.Windows.Forms.Label();
-            this.radioButtonD = new System.Windows.Forms.RadioButton();
-            this.OptionATxt = new System.Windows.Forms.TextBox();
-            this.OptionBTxt = new System.Windows.Forms.TextBox();
-            this.OptionCTxt = new System.Windows.Forms.TextBox();
-            this.OptionDTxt = new System.Windows.Forms.TextBox();
             this.Insert = new System.Windows.Forms.Button();
             this.closePictureBox = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.radioButtonB = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.radioButtonA = new System.Windows.Forms.RadioButton();
+            this.OptionARichTxt = new System.Windows.Forms.RichTextBox();
+            this.OptionBRichTxt = new System.Windows.Forms.RichTextBox();
+            this.OptionDRichTxt = new System.Windows.Forms.RichTextBox();
+            this.OptionCRichTxt = new System.Windows.Forms.RichTextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.radioButtonC = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.radioButtonD = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -153,16 +157,6 @@ namespace WinFormsApp1
             this.label5.TabIndex = 32;
             this.label5.Text = "Ünite Adı:";
             // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
-            this.pictureBox.Location = new System.Drawing.Point(229, 124);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(374, 235);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 39;
-            this.pictureBox.TabStop = false;
-            // 
             // Upload
             // 
             this.Upload.Location = new System.Drawing.Point(630, 320);
@@ -194,133 +188,9 @@ namespace WinFormsApp1
             this.QuestionRichTxt.TabIndex = 43;
             this.QuestionRichTxt.Text = "";
             // 
-            // radioButtonA
-            // 
-            this.radioButtonA.AutoSize = true;
-            this.radioButtonA.Location = new System.Drawing.Point(165, 507);
-            this.radioButtonA.Name = "radioButtonA";
-            this.radioButtonA.Size = new System.Drawing.Size(17, 16);
-            this.radioButtonA.TabIndex = 44;
-            this.radioButtonA.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label8.Location = new System.Drawing.Point(129, 504);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 23);
-            this.label8.TabIndex = 45;
-            this.label8.Text = "A)";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label9.Location = new System.Drawing.Point(129, 545);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 23);
-            this.label9.TabIndex = 47;
-            this.label9.Text = "B)";
-            // 
-            // radioButtonB
-            // 
-            this.radioButtonB.AutoSize = true;
-            this.radioButtonB.Location = new System.Drawing.Point(165, 548);
-            this.radioButtonB.Name = "radioButtonB";
-            this.radioButtonB.Size = new System.Drawing.Size(17, 16);
-            this.radioButtonB.TabIndex = 46;
-            this.radioButtonB.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label10.Location = new System.Drawing.Point(129, 586);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(31, 23);
-            this.label10.TabIndex = 49;
-            this.label10.Text = "C)";
-            // 
-            // radioButtonC
-            // 
-            this.radioButtonC.AutoSize = true;
-            this.radioButtonC.Location = new System.Drawing.Point(165, 589);
-            this.radioButtonC.Name = "radioButtonC";
-            this.radioButtonC.Size = new System.Drawing.Size(17, 16);
-            this.radioButtonC.TabIndex = 48;
-            this.radioButtonC.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.label11.Location = new System.Drawing.Point(129, 628);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 23);
-            this.label11.TabIndex = 51;
-            this.label11.Text = "D)";
-            // 
-            // radioButtonD
-            // 
-            this.radioButtonD.AutoSize = true;
-            this.radioButtonD.Location = new System.Drawing.Point(165, 631);
-            this.radioButtonD.Name = "radioButtonD";
-            this.radioButtonD.Size = new System.Drawing.Size(17, 16);
-            this.radioButtonD.TabIndex = 50;
-            this.radioButtonD.UseVisualStyleBackColor = true;
-            // 
-            // OptionATxt
-            // 
-            this.OptionATxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
-            this.OptionATxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionATxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.OptionATxt.Location = new System.Drawing.Point(190, 504);
-            this.OptionATxt.Margin = new System.Windows.Forms.Padding(4);
-            this.OptionATxt.Name = "OptionATxt";
-            this.OptionATxt.Size = new System.Drawing.Size(413, 23);
-            this.OptionATxt.TabIndex = 52;
-            this.OptionATxt.TabStop = false;
-            // 
-            // OptionBTxt
-            // 
-            this.OptionBTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
-            this.OptionBTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionBTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.OptionBTxt.Location = new System.Drawing.Point(190, 545);
-            this.OptionBTxt.Margin = new System.Windows.Forms.Padding(4);
-            this.OptionBTxt.Name = "OptionBTxt";
-            this.OptionBTxt.Size = new System.Drawing.Size(413, 23);
-            this.OptionBTxt.TabIndex = 53;
-            this.OptionBTxt.TabStop = false;
-            // 
-            // OptionCTxt
-            // 
-            this.OptionCTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
-            this.OptionCTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionCTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.OptionCTxt.Location = new System.Drawing.Point(190, 586);
-            this.OptionCTxt.Margin = new System.Windows.Forms.Padding(4);
-            this.OptionCTxt.Name = "OptionCTxt";
-            this.OptionCTxt.Size = new System.Drawing.Size(413, 23);
-            this.OptionCTxt.TabIndex = 54;
-            this.OptionCTxt.TabStop = false;
-            // 
-            // OptionDTxt
-            // 
-            this.OptionDTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
-            this.OptionDTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionDTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.OptionDTxt.Location = new System.Drawing.Point(190, 628);
-            this.OptionDTxt.Margin = new System.Windows.Forms.Padding(4);
-            this.OptionDTxt.Name = "OptionDTxt";
-            this.OptionDTxt.Size = new System.Drawing.Size(413, 23);
-            this.OptionDTxt.TabIndex = 55;
-            this.OptionDTxt.TabStop = false;
-            // 
             // Insert
             // 
-            this.Insert.Location = new System.Drawing.Point(350, 664);
+            this.Insert.Location = new System.Drawing.Point(338, 746);
             this.Insert.Name = "Insert";
             this.Insert.Size = new System.Drawing.Size(116, 39);
             this.Insert.TabIndex = 56;
@@ -341,30 +211,204 @@ namespace WinFormsApp1
             this.closePictureBox.TabStop = false;
             this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.panel4.Location = new System.Drawing.Point(592, 124);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(3, 234);
+            this.panel4.TabIndex = 101;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Location = new System.Drawing.Point(218, 124);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(3, 235);
+            this.panel3.TabIndex = 100;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Location = new System.Drawing.Point(218, 356);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(376, 3);
+            this.panel1.TabIndex = 99;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Location = new System.Drawing.Point(218, 124);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(374, 3);
+            this.panel2.TabIndex = 98;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.pictureBox.Location = new System.Drawing.Point(218, 124);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(374, 235);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 97;
+            this.pictureBox.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.label3.Location = new System.Drawing.Point(170, 569);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 23);
+            this.label3.TabIndex = 105;
+            this.label3.Text = "B)";
+            // 
+            // radioButtonB
+            // 
+            this.radioButtonB.AutoSize = true;
+            this.radioButtonB.Location = new System.Drawing.Point(206, 572);
+            this.radioButtonB.Name = "radioButtonB";
+            this.radioButtonB.Size = new System.Drawing.Size(17, 16);
+            this.radioButtonB.TabIndex = 104;
+            this.radioButtonB.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.label6.Location = new System.Drawing.Point(170, 514);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 23);
+            this.label6.TabIndex = 103;
+            this.label6.Text = "A)";
+            // 
+            // radioButtonA
+            // 
+            this.radioButtonA.AutoSize = true;
+            this.radioButtonA.Location = new System.Drawing.Point(206, 517);
+            this.radioButtonA.Name = "radioButtonA";
+            this.radioButtonA.Size = new System.Drawing.Size(17, 16);
+            this.radioButtonA.TabIndex = 102;
+            this.radioButtonA.UseVisualStyleBackColor = true;
+            // 
+            // OptionARichTxt
+            // 
+            this.OptionARichTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.OptionARichTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionARichTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.OptionARichTxt.Location = new System.Drawing.Point(229, 507);
+            this.OptionARichTxt.Name = "OptionARichTxt";
+            this.OptionARichTxt.Size = new System.Drawing.Size(374, 35);
+            this.OptionARichTxt.TabIndex = 110;
+            this.OptionARichTxt.Text = "";
+            // 
+            // OptionBRichTxt
+            // 
+            this.OptionBRichTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.OptionBRichTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionBRichTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.OptionBRichTxt.Location = new System.Drawing.Point(231, 562);
+            this.OptionBRichTxt.Name = "OptionBRichTxt";
+            this.OptionBRichTxt.Size = new System.Drawing.Size(374, 35);
+            this.OptionBRichTxt.TabIndex = 111;
+            this.OptionBRichTxt.Text = "";
+            // 
+            // OptionDRichTxt
+            // 
+            this.OptionDRichTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.OptionDRichTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionDRichTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.OptionDRichTxt.Location = new System.Drawing.Point(231, 675);
+            this.OptionDRichTxt.Name = "OptionDRichTxt";
+            this.OptionDRichTxt.Size = new System.Drawing.Size(374, 35);
+            this.OptionDRichTxt.TabIndex = 118;
+            this.OptionDRichTxt.Text = "";
+            // 
+            // OptionCRichTxt
+            // 
+            this.OptionCRichTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.OptionCRichTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionCRichTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.OptionCRichTxt.Location = new System.Drawing.Point(231, 617);
+            this.OptionCRichTxt.Name = "OptionCRichTxt";
+            this.OptionCRichTxt.Size = new System.Drawing.Size(374, 35);
+            this.OptionCRichTxt.TabIndex = 117;
+            this.OptionCRichTxt.Text = "";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.label12.Location = new System.Drawing.Point(169, 623);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 23);
+            this.label12.TabIndex = 120;
+            this.label12.Text = "C)";
+            // 
+            // radioButtonC
+            // 
+            this.radioButtonC.AutoSize = true;
+            this.radioButtonC.Location = new System.Drawing.Point(205, 626);
+            this.radioButtonC.Name = "radioButtonC";
+            this.radioButtonC.Size = new System.Drawing.Size(17, 16);
+            this.radioButtonC.TabIndex = 119;
+            this.radioButtonC.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.label2.Location = new System.Drawing.Point(170, 678);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 23);
+            this.label2.TabIndex = 122;
+            this.label2.Text = "D)";
+            // 
+            // radioButtonD
+            // 
+            this.radioButtonD.AutoSize = true;
+            this.radioButtonD.Location = new System.Drawing.Point(206, 681);
+            this.radioButtonD.Name = "radioButtonD";
+            this.radioButtonD.Size = new System.Drawing.Size(17, 16);
+            this.radioButtonD.TabIndex = 121;
+            this.radioButtonD.UseVisualStyleBackColor = true;
+            // 
             // KodNoLbl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(36)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(807, 715);
+            this.ClientSize = new System.Drawing.Size(807, 811);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.radioButtonD);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.radioButtonC);
+            this.Controls.Add(this.OptionDRichTxt);
+            this.Controls.Add(this.OptionCRichTxt);
+            this.Controls.Add(this.OptionBRichTxt);
+            this.Controls.Add(this.OptionARichTxt);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.radioButtonB);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.radioButtonA);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.closePictureBox);
             this.Controls.Add(this.Insert);
-            this.Controls.Add(this.OptionDTxt);
-            this.Controls.Add(this.OptionCTxt);
-            this.Controls.Add(this.OptionBTxt);
-            this.Controls.Add(this.OptionATxt);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.radioButtonD);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.radioButtonC);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.radioButtonB);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.radioButtonA);
             this.Controls.Add(this.QuestionRichTxt);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Upload);
-            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.SubjectNameTxt);
             this.Controls.Add(this.UnitNameTxt);
             this.Controls.Add(this.label4);
@@ -380,8 +424,8 @@ namespace WinFormsApp1
             this.Name = "KodNoLbl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSinavHazirlamaModülü";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,23 +441,27 @@ namespace WinFormsApp1
         private System.Windows.Forms.TextBox UnitNameTxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button Upload;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox QuestionRichTxt;
-        private System.Windows.Forms.RadioButton radioButtonA;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton radioButtonB;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radioButtonC;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RadioButton radioButtonD;
-        private System.Windows.Forms.TextBox OptionATxt;
-        private System.Windows.Forms.TextBox OptionBTxt;
-        private System.Windows.Forms.TextBox OptionCTxt;
-        private System.Windows.Forms.TextBox OptionDTxt;
         private System.Windows.Forms.Button Insert;
         private System.Windows.Forms.PictureBox closePictureBox;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton radioButtonB;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton radioButtonA;
+        private System.Windows.Forms.RichTextBox OptionARichTxt;
+        private System.Windows.Forms.RichTextBox OptionBRichTxt;
+        private System.Windows.Forms.RichTextBox OptionDRichTxt;
+        private System.Windows.Forms.RichTextBox OptionCRichTxt;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.RadioButton radioButtonC;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton radioButtonD;
     }
 }

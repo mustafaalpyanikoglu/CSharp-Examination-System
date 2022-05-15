@@ -39,11 +39,12 @@ namespace WinFormsApp1
             question.UnitNo = Convert.ToInt32(UnitNoTxt.Text);
             question.SubjectNo = Convert.ToInt32(SubjectNoTxt.Text);
             question.UnitName = UnitNameTxt.Text;
-            question.SubjectName = SubjectNameTxt.Text;
-            question.OptionA = OptionATxt.Text;
-            question.OptionB = OptionBTxt.Text;
-            question.OptionC = OptionCTxt.Text;
-            question.OptionD = OptionDTxt.Text;
+            question.SubjectName = SubjectNameTxt.Text;;
+            question.OptionA = OptionARichTxt.Text;
+            question.OptionB = OptionBRichTxt.Text;
+            question.OptionC = OptionCRichTxt.Text;
+            question.OptionD = OptionDRichTxt.Text;
+
             question.QuestionTxt = QuestionRichTxt.Text;
 
             MemoryStream memoryStream = new MemoryStream(); //image array şeklinde tutuyoruz
@@ -70,10 +71,10 @@ namespace WinFormsApp1
             if (result.isSuccess)
             {
                 MessageBox.Show(_successConstant.AddQuestion);
-                OptionATxt.Text = "";
-                OptionBTxt.Text = "";
-                OptionCTxt.Text = "";
-                OptionDTxt.Text = "";
+                OptionARichTxt.Text = "";
+                OptionBRichTxt.Text = "";
+                OptionCRichTxt.Text = "";
+                OptionDRichTxt.Text = "";
                 QuestionRichTxt.Text = "";
                 pictureBox.Image = null;
             }
