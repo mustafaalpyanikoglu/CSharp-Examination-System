@@ -49,10 +49,10 @@ namespace WinFormsApp1
 
         private void SetLoadedQuestion(Question question) //Soru verilerini yüklüyor
         {
-            OptionATxt.Text = question.OptionA;
-            OptionBTxt.Text = question.OptionB;
-            OptionCTxt.Text = question.OptionC;
-            OptionDTxt.Text = question.OptionD;
+            OptionARichTxt.Text = question.OptionA;
+            OptionBRichTxt.Text = question.OptionB;
+            OptionCRichTxt.Text = question.OptionC;
+            OptionDRichTxt.Text = question.OptionD;
             QuestionRichTxt.Text = question.QuestionTxt;
             TickCorrectOption(question.RightOption);
             MemoryStream ms = new MemoryStream(question.QuestionImage);
