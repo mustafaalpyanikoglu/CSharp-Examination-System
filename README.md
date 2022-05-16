@@ -39,5 +39,20 @@ Admin ve öğrenciye ileride yeni özellikler eklenebilmesi için admin ve öğr
 ![adminmenü](https://user-images.githubusercontent.com/79158705/168593991-ab6fc48c-c202-41ea-bfe0-b6c749c18fe3.png)
 ![öğrenci menü](https://user-images.githubusercontent.com/79158705/168594026-e4685c1a-0b66-49dc-85b3-a15030e367a3.png)
 
+# Scrum Table
+
+<img src = "https://user-images.githubusercontent.com/79158705/168595642-1a54a154-7f64-4743-bc07-f47169d4233a.png" width=800 height=459>
+
+# İsterler
+
+| İsterler Gerçekleştirildi  | Öğrenci Beyanı |
+| ------------- | ------------- |
+| Kullanıcı KayıtModülü hazırladığınız yazılımda varmı?  |  Evet  |
+| Sınav Hazırlama Modülü hazırladığınız yazılımda varmı?  | Evet  |
+| Sınav Hazırlık Modülü hazırladığınız yazılımda varmı?  | Evet  |
+| Soru sıklığı değiştirme Modülühazırladığınız yazılımda varmı  | Hayır  |
+| Analiz Rapor Modülü hazırladığınız yazılımda varmı?  | Hayır  |
+| Sınav Modülü hazırladığınız yazılımda varmı?  | Evet  |
+
 
 
