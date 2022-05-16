@@ -33,9 +33,9 @@ namespace WinFormsApp1
             kullaniciAdiTxt.Clear();
         }
 
+        //Kişi giriş yaparken seçtiği profil ile bizde bulunan enum yapısına göre hesap bilgilerini çekiyoruz.
         private void sifreHatirlaBTN_Click(object sender, EventArgs e)
         {
-            //Kişi giriş yaparken seçtiği profil ile bizde bulunan enum yapısına göre hesap bilgilerini çekiyoruz.
             if (this._userType == UserType.ADMIN) 
             {
                 _user = new AdminAccount();

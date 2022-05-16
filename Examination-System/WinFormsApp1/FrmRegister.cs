@@ -21,6 +21,7 @@ namespace WinFormsApp1
             this.userType = userType;
         }
 
+        //Seçilen hesaba göre girilen bilgileri doğru veritabanına ekliyoruz
         private void kayitOlBTN_Click(object sender, EventArgs e)
         {
             FrmChooseAccount frmIlkSayfa = new FrmChooseAccount();

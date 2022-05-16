@@ -24,6 +24,7 @@ namespace WinFormsApp1
             }
         }
 
+        //Kullanıcı doğru email ve kullanıcı adını girerse program ona şifresini gösterir.
         public BaseResult<User> ForgotPassword(User kisi, UserType userType)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
@@ -72,6 +73,8 @@ namespace WinFormsApp1
 
         }
 
+        //Girilen bilgilere göre ve veritabanındaki bilgiyle doğruluğuna göre hesaba giriş yapılır.
+        //3 tane form sayfası yapmak yerine if elseif else yapısı ile sorunu çözdük.
         public BaseResult<User> Login(User kisi, UserType userType)
         {
             SqlConnection connection = _sqlManager.sqlConnection();
@@ -92,7 +95,7 @@ namespace WinFormsApp1
             }
 
             _command.Connection = connection;
-
+            //veritabanındaki verileri okuyor.
             SqlDataReader sqlDataReader = _command.ExecuteReader();
 
             if (sqlDataReader.HasRows)
@@ -119,6 +122,7 @@ namespace WinFormsApp1
             }
         }
 
+        //hesap bilgilerini kaydediyor.
         public void Register(User kisi, UserType userType)
         {
             kisi.SaveData();

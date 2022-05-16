@@ -10,6 +10,7 @@ namespace WinFormsApp1
 {
     interface ISqlService
     {
+        //Sql ile bağlantı kurmamızı sağlar
         public SqlConnection sqlConnection();
     }
 }

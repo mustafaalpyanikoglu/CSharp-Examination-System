@@ -25,7 +25,7 @@ namespace WinFormsApp1
             {
             }
         }
-
+        //Sql'e girilen soru bilgilerini ekliyor
         public BaseResult<Question> AddQuestionData(Question question)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection(); //Sql'i bağlıyoruz.
@@ -55,6 +55,7 @@ namespace WinFormsApp1
             }
         }
 
+        //Veritabanından QuestionStatus=1 olan 10 adet soru çekiyoruz.
         public BaseResult<List<Question>> RandomQuestion()
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
@@ -91,6 +92,7 @@ namespace WinFormsApp1
             }
         }
 
+        //Veritabanındaki soruların hepsinin bilgilerini okuyoruz ve bir listeye kaydediyoruz.
         public BaseResult<List<Question>> LoadData()
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
@@ -126,6 +128,7 @@ namespace WinFormsApp1
             }
         }
 
+        //Girilen questionId'ye göre veritabanındaki o sorunun bilgilerini çekiyoruz.
         public BaseResult<Question> GetQuestionById(int questionId)
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
@@ -169,6 +172,7 @@ namespace WinFormsApp1
 
         }*/
 
+        //Soru onaylama işleminde işe yarıyor.Soru onaylanırsa questionStatüs=1 olur diğer durumda 0 kalır.
         public BaseResult<Question> UpdateQuestion(int questionId)
         {
             //QuestionStatus==0 ise soru onaylı değil || QuestionStatus==1 ise soru onaylı anlamına gelir

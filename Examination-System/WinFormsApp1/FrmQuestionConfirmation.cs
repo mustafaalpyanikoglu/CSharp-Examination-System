@@ -23,6 +23,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
+        //Datagridview'a tasarım ekliyoruz.
         public void DesignDataGridView()
         {
             dataGridView1.EnableHeadersVisualStyles = false;
@@ -41,6 +42,7 @@ namespace WinFormsApp1
             }
         }
 
+        //veritabanındaki onaylanmamış soru ID'lerini datagridview'a yüklüyoruz
         public void FillDatagridview()
         {
             SqlConnection sqlConnection = _sqlManager.sqlConnection();
@@ -49,12 +51,11 @@ namespace WinFormsApp1
             sqlDataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
             DesignDataGridView();
-
         }
 
+        //datagridview'dan seçilen sorunun verilerini çekiyoruz.
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //datagridview'dan seçilen sorunun verilerini çekme
             DialogResult result = MessageBox.Show("Doğru soruyu seçtiğinizden emin misiniz?", "Seçim onayı", MessageBoxButtons.YesNo);
             DataGridViewCell clickedCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
             if (result == DialogResult.Yes)
@@ -77,7 +78,8 @@ namespace WinFormsApp1
             }
         }
 
-        public void TickCorrectOption(int rightOption) //Doğru seçeneği bulup işaretliyor.
+        //Buton listesinde doğru seçeneği bulup işaretliyor.
+        public void TickCorrectOption(int rightOption)
         {
             int i = 0;
             _optionList.ForEach(o => {
@@ -92,6 +94,7 @@ namespace WinFormsApp1
         }
 
 
+        //Veritabanından gelen soru bilgilerini form sayfasına yüklüyor
         private void SetLoadedQuestion(Question question)
         {
             SubjectNoTxt.Text = question.SubjectNo.ToString();
@@ -109,6 +112,7 @@ namespace WinFormsApp1
             TickCorrectOption(question.RightOption);
         }
 
+        //Form sayfasında yazılan bilgileri temizliyoruz.
         public void ClearLoaded()
         {
             SubjectNoTxt.Text = "";
@@ -132,6 +136,7 @@ namespace WinFormsApp1
         private void FrmQuestionConfirmation_Load(object sender, EventArgs e)
         {
             FillDatagridview();
+            //Form sayfasındaki butonları listeye ekliyoruz.
             _optionList.Add(radioButtonA);
             _optionList.Add(radioButtonB);
             _optionList.Add(radioButtonC);
@@ -146,9 +151,9 @@ namespace WinFormsApp1
             this.Hide();
         }
 
+        //Seçieln soruyu onaylıyor ve soru statüsünü 1 yapıyoruz. Böylece soruyu onaylı sorular havuzuna atıyoruz.
         private void onaylaBTN_Click(object sender, EventArgs e)
         {
-           
             if (_selectedQuestionID!=0)
             {
                 BaseResult<Question> result2 = _questionManager.UpdateQuestion(_selectedQuestionID);

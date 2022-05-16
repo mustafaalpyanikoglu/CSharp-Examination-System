@@ -9,7 +9,8 @@ namespace WinFormsApp1
 {
     class AdminAccount : User
     {
-        public override void SaveData() //admin bilgilerini kaydediyoruz
+        //admin bilgilerini veritabanına kaydediyoruz.
+        public override void SaveData() 
         {
             SqlManager sqlManager = new SqlManager();
             sqlManager.sqlConnection();

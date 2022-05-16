@@ -15,9 +15,9 @@ namespace WinFormsApp1
     public partial class KodNoLbl : Form
     {
         private IQuestionService _questionManager = new QuestionManager();
-        private SuccessConstant _successConstant = new SuccessConstant();
-        private ErrorConstant _errorConstant = new ErrorConstant();
-        
+        private SuccessConstant _successConstant = new SuccessConstant(); //başarılı sonuçlar'da ekrana gelen ifadelerin sınıfı
+        private ErrorConstant _errorConstant = new ErrorConstant(); //yanlış sonuçlar'da ekrana gelen ifadelerin sınıfı
+
         public KodNoLbl()
         {
             InitializeComponent();
@@ -50,7 +50,7 @@ namespace WinFormsApp1
             MemoryStream memoryStream = new MemoryStream(); //image array şeklinde tutuyoruz
             pictureBox.Image.Save(memoryStream, pictureBox.Image.RawFormat);
             question.QuestionImage = memoryStream.ToArray();
-
+            //işaretlenen şıkkın durumuna göre bir indis belirliyoruz
             if (radioButtonA.Checked)
             {
                 question.RightOption = 1;
@@ -67,7 +67,7 @@ namespace WinFormsApp1
             {
                 question.RightOption = 4;
             }
-            BaseResult<Question> result = _questionManager.AddQuestionData(question);
+            BaseResult<Question> result = _questionManager.AddQuestionData(question); //soruyuyu ekledikten sonra soru eklendiyse bize başarılı döner
             if (result.isSuccess)
             {
                 MessageBox.Show(_successConstant.AddQuestion);

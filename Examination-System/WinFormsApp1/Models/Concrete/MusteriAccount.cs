@@ -9,7 +9,8 @@ namespace WinFormsApp1
 {
     class MusteriAccount:User 
     {
-        public override void SaveData() //müşteri bilgilerini kaydediyoruz
+        //müşteri bilgilerini kaydediyoruz
+        public override void SaveData() 
         {
             SqlManager sqlManager = new SqlManager();
             sqlManager.sqlConnection();

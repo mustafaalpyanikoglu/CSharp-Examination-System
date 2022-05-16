@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    public enum UserType //Bu tipler sayesinde Hangi işlemi kimin yapabileceğini sınırlandırıyoruz.
+    //Bu tipler sayesinde Hangi işlemi kimin yapabileceğini sınırlandırıyoruz.
+    public enum UserType 
     {
         ADMIN, //admin
         EXAMINER, //sınav sorumlusu

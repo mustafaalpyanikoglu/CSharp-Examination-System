@@ -38,7 +38,6 @@ namespace WinFormsApp1
         }
 
         public abstract void SaveData();
-        //public abstract void DataControl(string kullaniciAd, string mail);
 
     }
 }

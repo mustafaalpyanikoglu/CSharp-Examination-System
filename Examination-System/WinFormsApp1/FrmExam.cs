@@ -18,13 +18,14 @@ namespace WinFormsApp1
         private int _minutes = 9, _second = 60;
 
         private List<Question> _question;
-        private List<Question> _trueAnswerQuestionList = new List<Question>();
-        private List<Question> _falseAnswerQuestionsList = new List<Question>();
-        private List<RadioButton> _optionList = new List<RadioButton>();
+        private List<Question> _trueAnswerQuestionList = new List<Question>(); //Doğru cevaplanan soruları tutuyor
+        private List<Question> _falseAnswerQuestionsList = new List<Question>(); //Yanlış işaretlenen soruları tutuyor
+        private List<RadioButton> _optionList = new List<RadioButton>(); //A-B-C-D şıklarını bir listeye ekliyoruz.
 
         public FrmExam(List<Question> result)
         {
             InitializeComponent();
+            //Hazırlanan 10 soruluk soru listesi form sayfasına yükleniyor
             this._question = result;
             _optionList.Add(radioButtonA);
             _optionList.Add(radioButtonB);
@@ -46,6 +47,7 @@ namespace WinFormsApp1
             QuestionAnswerControl();
         }
 
+        //Çekilen soru bilgilerini forma yüklüyor
         private void SetLoadedQuestion(Question question)
         {
             OptionARichTxt.Text = question.OptionA;
@@ -63,6 +65,7 @@ namespace WinFormsApp1
             Timer();
         }
 
+        //Saniye 60'dan geri sayılıyor 0'a ulaştığında dakika da bir düşüyor
         public void Timer()
         {
             if (_second == 0)
@@ -75,16 +78,21 @@ namespace WinFormsApp1
             _second--;
             if (_minutes < 0)
             {
+
                 Saniye.Stop();
                 saniyeLbl.Text = "0";
                 dakikaLbl.Text = "0";
+                FrmExamResult frmExamResult = new FrmExamResult(_trueAnswerQuestionList, _falseAnswerQuestionsList, _question);
+                frmExamResult.Show();
+                this.Hide();
             }
         }
 
+        //Sorunun cevabına göre doğru soru havuzuna veya yanlış soru havuzuna atılır
         public void RightOptionControl(int rightOption)
         {
             int selectedOption = _optionList.FindIndex(option => option.Checked);
-            MessageBox.Show($"{rightOption} - {selectedOption + 1}");
+            //MessageBox.Show($"{rightOption} - {selectedOption + 1}"); İşarlenen cevabı ve sorunun cevabını gösteriyor
             if (rightOption == selectedOption + 1)
             {
                 //sorunun cevabı doğru şık.
@@ -98,10 +106,12 @@ namespace WinFormsApp1
             }
         }
 
+        //Soruyu cevaplandı mı cevaplandıysa doğru şıkmı olduğu kontrol edilir
         public void QuestionAnswerControl()
         {
-            if (_question.Count() > _questionCount && _minutes > 0)
+            if (_question.Count() > _questionCount) //Her yeni soruya geçildiğinde listedeki soruların da tamamlanması koşulu var && dakika 0 a ulaşırsa sınav biter
             {
+
                 SetLoadedQuestion(_question[_questionCount]);
                 int rightOption = _question[_questionCount].RightOption;
                 
