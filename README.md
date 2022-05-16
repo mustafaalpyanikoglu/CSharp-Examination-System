@@ -54,5 +54,6 @@ Admin ve öğrenciye ileride yeni özellikler eklenebilmesi için admin ve öğr
 | Analiz Rapor Modülü hazırladığınız yazılımda varmı?  | Hayır  |
 | Sınav Modülü hazırladığınız yazılımda varmı?  | Evet  |
 
-
+# Ekipte çalışanlar
+Mustafa Alp YANIKOĞLU -- 202803035
 
