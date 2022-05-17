@@ -50,7 +50,7 @@ Admin ve öğrenciye ileride yeni özellikler eklenebilmesi için admin ve öğr
 | Kullanıcı KayıtModülü hazırladığınız yazılımda varmı?  |  Evet  |
 | Sınav Hazırlama Modülü hazırladığınız yazılımda varmı?  | Evet  |
 | Sınav Hazırlık Modülü hazırladığınız yazılımda varmı?  | Evet  |
-| Soru sıklığı değiştirme Modülühazırladığınız yazılımda varmı  | Hayır  |
+| Soru sıklığı değiştirme Modülü hazırladığınız yazılımda varmı  | Hayır  |
 | Analiz Rapor Modülü hazırladığınız yazılımda varmı?  | Hayır  |
 | Sınav Modülü hazırladığınız yazılımda varmı?  | Evet  |
 
