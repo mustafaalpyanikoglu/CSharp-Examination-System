@@ -43,7 +43,7 @@ Admin ve öğrenciye ileride yeni özellikler eklenebilmesi için admin ve öğr
 
 <img src = "https://user-images.githubusercontent.com/79158705/168595642-1a54a154-7f64-4743-bc07-f47169d4233a.png" width=800 height=459>
 
-# İsterler
+# Ekip Beyanı
 
 | İsterler Gerçekleştirildi  | Öğrenci Beyanı |
 | ------------- | ------------- |
