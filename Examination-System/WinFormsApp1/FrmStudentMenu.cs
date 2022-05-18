@@ -19,6 +19,7 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
+        //Veritabanından random 10 adet soru çekeriz.Ve öğrenci için sınav başlar.
         private void SinavaGirBoxBTN_Click(object sender, EventArgs e)
         {
             IQuestionService questionManager = new QuestionManager();

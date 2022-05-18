@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
+    //Başarılı ifadeleri saklamamızı sağlar
     class SuccessConstant
     {
         public string UserFound = "Kullanıcı bulundu.";

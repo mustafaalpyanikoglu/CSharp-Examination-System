@@ -14,9 +14,9 @@ namespace WinFormsApp1
 {
     public partial class FrmExamResult : Form
     {
-        private List<Question> _rightQuestion, _wrongQuestion, _questions;
-        private int _selectedQuestion;
-        private List<RadioButton> _optionList = new List<RadioButton>();
+        private List<Question> _rightQuestion, _wrongQuestion, _questions; //doğu soru, yanlış soru ve soru listeleri
+        private int _selectedQuestion; //işaretlenen soru
+        private List<RadioButton> _optionList = new List<RadioButton>();   //form sayfasındaki butonlar için liste
 
 
         public FrmExamResult(List<Question> rightQuestion , List<Question> wrongQuestion,List<Question> question)
@@ -34,7 +34,8 @@ namespace WinFormsApp1
             this.Hide();
         }
 
-        public void PrintAnswer() //Hangi soruları doğru/yanlış yaptığını listview'a yazdırıyor.
+        //Hangi soruları doğru/yanlış yaptığını listview'a yazdırıyor.
+        public void PrintAnswer() 
         {
             for(int i=0; i<_questions.Count;i++)
             {
@@ -47,7 +48,8 @@ namespace WinFormsApp1
             }
         }
 
-        private void SetLoadedQuestion(Question question) //Soru verilerini yüklüyor
+        //Soru verilerini yüklüyor forma yüklüyor
+        private void SetLoadedQuestion(Question question) 
         {
             OptionARichTxt.Text = question.OptionA;
             OptionBRichTxt.Text = question.OptionB;
@@ -60,7 +62,8 @@ namespace WinFormsApp1
             pictureBox.Image = returnImage;
         }
 
-        public void TickCorrectOption(int rightOption) //Doğru seçeneği bulup işaretliyor.
+        //Seçilen sorunun hangi şıkkının doğru olduğunu bulup background planını yeşil yapıyor.
+        public void TickCorrectOption(int rightOption) 
         {
             int i = 0;
             _optionList.ForEach(o => {
@@ -86,6 +89,7 @@ namespace WinFormsApp1
             DogruSayisiLbl.Text = "Doğru Sayısı: " + _rightQuestion.Count;
             YanlisSayisiLbl.Text = "Yanlış Sayısı: " + _wrongQuestion.Count;
             PrintAnswer();
+            //Formdaki butonları listeye ekliyoruz.
             _optionList.Add(radioButtonA);
             _optionList.Add(radioButtonB);
             _optionList.Add(radioButtonC);

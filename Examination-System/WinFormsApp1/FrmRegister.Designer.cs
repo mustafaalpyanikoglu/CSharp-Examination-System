@@ -85,6 +85,7 @@ namespace WinFormsApp1
             this.sifreTxt.Location = new System.Drawing.Point(81, 290);
             this.sifreTxt.Margin = new System.Windows.Forms.Padding(4);
             this.sifreTxt.Name = "sifreTxt";
+            this.sifreTxt.PasswordChar = '*';
             this.sifreTxt.Size = new System.Drawing.Size(293, 23);
             this.sifreTxt.TabIndex = 22;
             this.sifreTxt.TabStop = false;

@@ -9,7 +9,8 @@ namespace WinFormsApp1
 {
     class ExaminerAccount:User
     {
-        public override void SaveData() //admin bilgilerini kaydediyoruz
+        //sınav sorumlusunun bilgilerini kaydediyoruz.
+        public override void SaveData()
         {
             SqlManager sqlManager = new SqlManager();
             sqlManager.sqlConnection();

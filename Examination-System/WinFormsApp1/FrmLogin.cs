@@ -39,10 +39,10 @@ namespace WinFormsApp1
             kullaniciAdiTxt.Clear();
         }
 
+        //Seçilen hesaba göre kişinin girdiği bilgiler veritabanında bulunup bulunmadığını kontrol eder.
         private void girisBTN_Click(object sender, EventArgs e)
         {
-            //IAuthService authService = new AuthManager();
-            IAuthService authService;
+            IAuthService authService = new AuthManager();
             User _user;
             if(this._userType==UserType.ADMIN)
             {
@@ -75,9 +75,9 @@ namespace WinFormsApp1
 
         }
 
+        //Girilen hesap bilgilerine göre hesabın erişebileceği sayfalar açılıyor.
         public void NavigateToHomeControl(UserType userType)
         {
-            //Girilen hesap bilgilerine göre hesabın erişebileceği sayfalar açılıyor.
             if(userType==UserType.ADMIN)
             {
                 FrmAdminMenu frmAdminMenu = new FrmAdminMenu();
